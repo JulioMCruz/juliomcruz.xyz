@@ -3,12 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Julio M Cruz</title>
-<meta name="description" content="Software Engineer Founder. 29+ years shipping production systems. Created PerkOS and zkNexus.">
-<meta property="og:title" content="Julio M Cruz">
-<meta property="og:description" content="Software Engineer Founder. 29+ years shipping production systems.">
+<title>Julio M Cruz — Software Engineer · Founder</title>
+<meta name="description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Six years at the Department of State with TS clearance. 165 public repositories on GitHub.">
+<link rel="canonical" href="https://juliomcruz.xyz/">
+<meta property="og:title" content="Julio M Cruz — Software Engineer · Founder">
+<meta property="og:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Six years at the Department of State with TS clearance. 165 public repositories on GitHub.">
 <meta property="og:type" content="profile">
-<meta property="og:url" content="https://juliomcruz.xyz">
+<meta property="og:url" content="https://juliomcruz.xyz/">
+<meta property="og:image" content="https://juliomcruz.xyz/julio.jpg">
+<meta property="og:image:alt" content="Julio M Cruz portrait">
+<meta property="og:site_name" content="Julio M Cruz">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@JulioMCruz">
+<meta name="twitter:title" content="Julio M Cruz — Software Engineer · Founder">
+<meta name="twitter:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Six years at the Department of State with TS clearance.">
+<meta name="twitter:image" content="https://juliomcruz.xyz/julio.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Julio M Cruz",
+  "url": "https://juliomcruz.xyz/",
+  "image": "https://juliomcruz.xyz/julio.jpg",
+  "jobTitle": "Software Engineer",
+  "sameAs": [
+    "https://github.com/JulioMCruz",
+    "https://x.com/JulioMCruz",
+    "https://www.linkedin.com/in/juliomcruz/",
+    "https://t.me/JulioMCruz"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -130,6 +155,29 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:40
 footer{padding:4rem 0 5rem;border-top:1px solid var(--rule);color:var(--paper-faint);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em}
 footer a{color:var(--paper-dim);text-decoration:none}
 footer a:hover{color:var(--signal)}
+
+/* ── contact form ── */
+.contact-form{max-width:32rem}
+.contact-form label{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:.4rem}
+.contact-form input,.contact-form textarea{
+  width:100%;background:var(--ink-2);border:1px solid var(--rule);border-radius:2px;
+  color:var(--paper);font-family:var(--serif);font-size:1rem;padding:.8rem 1rem;
+  transition:border-color .25s;
+}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--signal)}
+.contact-form textarea{min-height:8rem;resize:vertical}
+.contact-form .field{margin-bottom:1.4rem}
+.contact-form button{
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--signal);color:var(--signal);
+  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background .25s,color .25s;
+}
+.contact-form button:hover{background:var(--signal);color:var(--ink)}
+.contact-form button:disabled{opacity:.5;cursor:not-allowed}
+.contact-form .hp{position:absolute;left:-9999px}
+.contact-form .msg{margin-top:1rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.04em}
+.contact-form .msg.ok{color:#6ec66e}
+.contact-form .msg.err{color:#e05454}
 </style>
 </head>
 <body>
@@ -250,6 +298,34 @@ footer a:hover{color:var(--signal)}
   </div>
 </section>
 
+<hr class="rule">
+
+<section id="contact">
+  <div class="wrap">
+    <div class="shead">
+      <div class="lbl rv">Contact</div>
+      <h2 class="rv">Get in touch.</h2>
+    </div>
+    <form class="contact-form rv" id="contact-form" action="https://form.juliomcruz.xyz/contact" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off">
+      <button type="submit" id="submit-btn">Send message</button>
+      <div id="form-msg" class="msg" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     Julio M Cruz · Software Engineer · Founder · Virginia, US
@@ -266,6 +342,29 @@ document.querySelectorAll('.rv').forEach((el,i)=>{
   }
   io.observe(el);
 });
+
+(function(){
+  const form=document.getElementById('contact-form');
+  const btn=document.getElementById('submit-btn');
+  const msg=document.getElementById('form-msg');
+  if(!form)return;
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    btn.disabled=true;
+    btn.textContent='Sending...';
+    msg.textContent='';
+    msg.className='msg';
+    const data=new FormData(form);
+    if(data.get('website')){msg.textContent='Submission blocked.';msg.className='msg err';btn.disabled=false;btn.textContent='Send message';return;}
+    try{
+      const res=await fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:data.get('name'),email:data.get('email'),message:data.get('message')})});
+      const json=await res.json();
+      if(res.ok){msg.textContent='Message sent. Thank you.';msg.className='msg ok';form.reset();}
+      else{msg.textContent=json.error||'Something went wrong. Please try again.';msg.className='msg err';}
+    }catch(err){msg.textContent='Network error. Please try again.';msg.className='msg err';}
+    btn.disabled=false;btn.textContent='Send message';
+  });
+})();
 </script>
 </body>
 </html>
