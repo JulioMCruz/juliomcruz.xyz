@@ -47,6 +47,7 @@
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --gut:clamp(1.25rem,5vw,4rem);
   --ease:cubic-bezier(.16,1,.3,1);
+  --ease-hover:cubic-bezier(.4,0,.2,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -56,27 +57,25 @@ body{
   line-height:1.62;font-weight:300;-webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-/* grain + subtle ambient */
+/* grain */
 body::before{
   content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation:grain-drift 20s ease-in-out infinite;
 }
-@keyframes grain-drift{0%,100%{opacity:.035}50%{opacity:.025}}
 .wrap{max-width:74rem;margin:0 auto;padding:0 var(--gut)}
 a{color:inherit}
 .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-faint);font-weight:500}
 .rule{height:1px;background:var(--rule);border:0;margin:0}
 
 /* ── reveal ── */
-.rv{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 600ms var(--ease),transform 600ms var(--ease);will-change:opacity,transform}
 .rv.in{opacity:1;transform:translateY(0)}
-/* hero stagger */
+/* hero stagger: name → role → lead → chips, 70ms intervals */
+.hero-identity h1.rv{transition-delay:0s}
+.hero-lbl.rv{transition-delay:70ms}
+.hero-intro.rv{transition-delay:140ms}
+.chips.rv{transition-delay:210ms}
 .portrait.rv{transition-delay:0s}
-.hero-lbl.rv{transition-delay:.04s}
-.hero-identity h1.rv{transition-delay:.08s}
-.hero-intro.rv{transition-delay:.12s}
-.chips.rv{transition-delay:.18s}
 
 /* ── hero ── */
 header{position:relative;padding:clamp(2.5rem,6vh,4rem) 0 clamp(2rem,4vh,3rem)}
@@ -93,10 +92,10 @@ h1{
 .chip{
   font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:.44rem .8rem;
   border:1px solid var(--rule);border-radius:2px;color:var(--paper-dim);text-decoration:none;
-  transition:border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease);
+  transition:border-color 150ms var(--ease-hover),color 150ms var(--ease-hover),box-shadow 200ms ease-out,transform 150ms var(--ease-hover);
 }
-.chip:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-2px)}
-.chip.b:hover{border-color:var(--base);color:var(--base)}
+.chip:hover{border-color:var(--signal);color:var(--signal);box-shadow:0 0 0 1px var(--signal-dim);transform:translateX(2px)}
+.chip.b:hover{border-color:var(--base);color:var(--base);box-shadow:0 0 0 1px rgba(77,132,255,.3)}
 
 /* ── section frame ── */
 section{padding:clamp(4rem,10vh,7.5rem) 0}
@@ -107,7 +106,9 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:40
 /* ── timeline ── */
 .tl{display:grid;grid-template-columns:minmax(0,10rem) 1fr;gap:clamp(1rem,4vw,3rem)}
 @media(max-width:720px){.tl{grid-template-columns:1fr}}
-.tl-body{border-left:1px solid var(--rule);padding-left:clamp(1.4rem,3vw,2.6rem);position:relative}
+.tl-body{padding-left:clamp(1.4rem,3vw,2.6rem);position:relative}
+.tl-body::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--rule);transform:scaleY(0);transform-origin:top;transition:transform 600ms var(--ease)}
+.tl-body.in::before{transform:scaleY(1)}
 .node{position:relative;padding-bottom:3.2rem}
 .node:last-child{padding-bottom:0}
 .node::before{
@@ -145,33 +146,43 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:40
 
 /* ── awards ── */
 .wins{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.4rem}
-.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline;transition:transform .2s var(--ease),background .2s var(--ease)}
-.win:hover{transform:translateY(-2px);background:var(--ink-2)}
+.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline;transition:border-color 200ms ease-out,box-shadow 200ms ease-out,background 150ms var(--ease-hover)}
+.win:hover{background:var(--ink-2);box-shadow:inset 2px 0 0 var(--signal-dim)}
 @media(max-width:720px){.win{grid-template-columns:1fr;gap:.3rem}}
 .win time{font-family:var(--mono);font-size:.74rem;color:var(--paper-faint);letter-spacing:.06em}
-.win strong{font-weight:500;font-size:1.06rem;transition:color .2s var(--ease)}
+.win strong{font-weight:500;font-size:1.06rem;transition:color 150ms var(--ease-hover)}
 .win:hover strong{color:var(--paper)}
 .win .res{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--base);text-transform:uppercase}
 .win.gold .res{color:var(--signal)}
+.win.gold:hover{box-shadow:inset 2px 0 0 var(--signal)}
 
 /* ── links ── */
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.6rem}
-.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background .2s var(--ease),transform .2s var(--ease)}
-.links a:hover{background:var(--ink-2);transform:translateY(-2px)}
-.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem;transition:color .2s var(--ease)}
+.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background 150ms var(--ease-hover),box-shadow 200ms ease-out}
+.links a:hover{background:var(--ink-2);box-shadow:inset 0 -2px 0 var(--signal-dim)}
+.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem;transition:color 150ms var(--ease-hover)}
 .links a span{font-family:var(--mono);font-size:.72rem;color:var(--paper-faint);letter-spacing:.03em}
 .links a:hover b{color:var(--signal)}
 
 footer{padding:4rem 0 5rem;border-top:1px solid var(--rule);color:var(--paper-faint);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em}
-footer a{color:var(--paper-dim);text-decoration:none;transition:color .2s var(--ease),transform .2s var(--ease);display:inline-block}
-footer a:hover{color:var(--signal);transform:translateY(-1px)}
+footer a{color:var(--paper-dim);text-decoration:none;transition:color 150ms var(--ease-hover)}
+footer a:hover{color:var(--signal)}
 
-/* ── reduced motion ── */
+/* ── arrow links: nudge on hover ── */
+.arrow-link{display:inline-flex;align-items:center;gap:.3em;transition:color 150ms var(--ease-hover),transform 150ms var(--ease-hover)}
+.arrow-link:hover{color:var(--signal);transform:translateX(2px)}
+
+/* ── reduced motion: gate ALL animation ── */
 @media(prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none;transition:none}
-  body::before{animation:none}
-  .chip,.win,.links a,.contact-form button,footer a{transition:none;transform:none!important}
-  .chip:hover,.win:hover,.links a:hover,.contact-form button:hover,footer a:hover{transform:none!important}
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .rv{opacity:1;transform:none;will-change:auto}
+  .tl-body::before{transform:scaleY(1)}
+  [style*="transition-delay"]{transition-delay:0s!important}
 }
 
 /* ── contact form ── */
@@ -188,7 +199,7 @@ footer a:hover{color:var(--signal);transform:translateY(-1px)}
 .contact-form button{
   font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
   background:transparent;border:1px solid var(--signal);color:var(--signal);
-  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease);
+  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background 150ms var(--ease-hover),color 150ms var(--ease-hover),transform 150ms var(--ease-hover);
 }
 .contact-form button:hover{background:var(--signal);color:var(--ink);transform:scale(1.02)}
 .contact-form button:disabled{opacity:.5;cursor:not-allowed}
@@ -299,7 +310,7 @@ footer a:hover{color:var(--signal);transform:translateY(-1px)}
       <div class="win rv"><time>Feb 2025</time><strong>Agentic Ethereum <span style="color:var(--paper-faint);font-weight:300">· Infinity</span></strong><span class="res">Coinbase AgentKit</span></div>
       <div class="win rv"><time>Oct 2024</time><strong>ETHGlobal San Francisco <span style="color:var(--paper-faint);font-weight:300">· Aurum</span></strong><span class="res">Chronicle, 1st</span></div>
     </div>
-    <p class="rv" style="margin-top:1.8rem"><a href="https://github.com/JulioMCruz" style="font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--paper-faint);text-decoration:none">Full record on GitHub ↗</a></p>
+    <p class="rv" style="margin-top:1.8rem"><a href="https://github.com/JulioMCruz" class="arrow-link" style="font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--paper-faint);text-decoration:none">Full record on GitHub ↗</a></p>
   </div>
 </section>
 
@@ -357,7 +368,7 @@ footer a:hover{color:var(--signal);transform:translateY(-1px)}
 </footer>
 
 <script>
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'-80px 0px',threshold:.06});
 document.querySelectorAll('.rv').forEach((el,i)=>{
   if(el.closest('header')){
     requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
@@ -365,10 +376,11 @@ document.querySelectorAll('.rv').forEach((el,i)=>{
   }
   const p=el.parentElement;
   if(p&&(p.classList.contains('log')||p.classList.contains('wins')||p.classList.contains('links')||p.classList.contains('tl-body')||p.classList.contains('data'))){
-    el.style.transitionDelay=(Array.from(p.children).indexOf(el)*0.045)+'s';
+    el.style.transitionDelay=(Array.from(p.children).indexOf(el)*0.07)+'s';
   }
   io.observe(el);
 });
+document.querySelectorAll('.tl-body').forEach(el=>{io.observe(el)});
 
 (function(){
   const form=document.getElementById('contact-form');
