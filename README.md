@@ -2,24 +2,27 @@
 
 Personal site. One page, no framework, no build step.
 
-`index.html` is the whole thing. Edit it and push; GitHub Pages serves it at
+`index.html` is the whole thing. Edit it and push; Vercel serves it at
 [juliomcruz.xyz](https://juliomcruz.xyz).
 
 ## Architecture
 
-| Component | Host | Domain |
-|-----------|------|--------|
-| Static site | GitHub Pages | juliomcruz.xyz |
-| Contact form API | Vercel | form.juliomcruz.xyz |
+| Component | Host | Path |
+|-----------|------|------|
+| Static site | Vercel | / |
+| Contact form API | Vercel | /contact → /api/contact |
 
-The contact form on the site posts to `https://form.juliomcruz.xyz/contact`, which is a
-Vercel serverless function that sends email via Resend.
+The entire site deploys on Vercel. The contact form posts to `/contact` (same origin),
+which rewrites to `api/contact.ts`, a serverless function that sends email via Resend.
 
-## Contact Form Setup (Vercel)
+## Vercel Setup
 
 ### 1. Deploy to Vercel
 
-Link this repository to a Vercel project. Vercel will deploy the `api/contact.ts` function.
+Link this repository to a Vercel project. Vercel will:
+- Serve the static files (`index.html`, `julio.jpg`, `robots.txt`, `sitemap.xml`)
+- Deploy the `api/contact.ts` function
+- Apply the rewrite from `/contact` to `/api/contact` (configured in `vercel.json`)
 
 ### 2. Set environment variables
 
@@ -36,18 +39,11 @@ In the Vercel Dashboard → Project → Settings → Environment Variables, add:
 
 ### 3. Add custom domain
 
-In Vercel Dashboard → Project → Settings → Domains, add `form.juliomcruz.xyz`.
+In Vercel Dashboard → Project → Settings → Domains, add `juliomcruz.xyz`.
 
-### 4. Add DNS record
+### 4. Configure DNS
 
-In Route 53 (or your DNS provider), add a CNAME record for the form subdomain:
-
-| Type | Name | Value |
-|------|------|-------|
-| CNAME | form | cname.vercel-dns.com |
-
-`cname.vercel-dns.com` is Vercel's documented target for custom domains. The apex
-(`juliomcruz.xyz`) remains on GitHub Pages; only the `form` subdomain points to Vercel.
+See [DNS.md](DNS.md) for Route 53 setup. Point the apex and www to Vercel.
 
 ## Keeping it true
 
