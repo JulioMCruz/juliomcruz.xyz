@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Julio M Cruz — Software Engineer · Founder</title>
-<meta name="description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Six years at the Department of State with TS clearance. 165 public repositories on GitHub.">
+<meta name="description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Federal TS clearance at SBA then State. 165 public repositories on GitHub.">
 <link rel="canonical" href="https://www.juliomcruz.xyz/">
 <meta property="og:title" content="Julio M Cruz — Software Engineer · Founder">
-<meta property="og:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Six years at the Department of State with TS clearance. 165 public repositories on GitHub.">
+<meta property="og:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Federal TS clearance at SBA then State. 165 public repositories on GitHub.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://www.juliomcruz.xyz/">
 <meta property="og:image" content="https://www.juliomcruz.xyz/julio.jpg">
@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@JulioMCruz">
 <meta name="twitter:title" content="Julio M Cruz — Software Engineer · Founder">
-<meta name="twitter:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Six years at the Department of State with TS clearance.">
+<meta name="twitter:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Federal TS clearance at SBA then State. 165 public repositories on GitHub.">
 <meta name="twitter:image" content="https://www.juliomcruz.xyz/julio.jpg">
 <script type="application/ld+json">
 {
@@ -25,7 +25,7 @@
   "name": "Julio M Cruz",
   "url": "https://www.juliomcruz.xyz/",
   "image": "https://www.juliomcruz.xyz/julio.jpg",
-  "jobTitle": "Software Engineer",
+  "jobTitle": "Software Engineer · Founder",
   "sameAs": [
     "https://github.com/JulioMCruz",
     "https://x.com/JulioMCruz",
@@ -46,6 +46,8 @@
   --serif:"Newsreader",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --gut:clamp(1.25rem,5vw,4rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-hover:cubic-bezier(.4,0,.2,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -66,9 +68,14 @@ a{color:inherit}
 .rule{height:1px;background:var(--rule);border:0;margin:0}
 
 /* ── reveal ── */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 600ms var(--ease),transform 600ms var(--ease);will-change:opacity,transform}
+.rv.in{opacity:1;transform:translateY(0)}
+/* hero stagger: name → role → lead → chips, 70ms intervals */
+.hero-identity h1.rv{transition-delay:0s}
+.hero-lbl.rv{transition-delay:70ms}
+.hero-intro.rv{transition-delay:140ms}
+.chips.rv{transition-delay:210ms}
+.portrait.rv{transition-delay:0s}
 
 /* ── hero ── */
 header{position:relative;padding:clamp(2.5rem,6vh,4rem) 0 clamp(2rem,4vh,3rem)}
@@ -85,10 +92,10 @@ h1{
 .chip{
   font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:.44rem .8rem;
   border:1px solid var(--rule);border-radius:2px;color:var(--paper-dim);text-decoration:none;
-  transition:border-color .25s,color .25s,background .25s;
+  transition:border-color 150ms var(--ease-hover),color 150ms var(--ease-hover),box-shadow 200ms ease-out,transform 150ms var(--ease-hover);
 }
-.chip:hover{border-color:var(--signal);color:var(--signal)}
-.chip.b:hover{border-color:var(--base);color:var(--base)}
+.chip:hover{border-color:var(--signal);color:var(--signal);box-shadow:0 0 0 1px var(--signal-dim);transform:translateX(2px)}
+.chip.b:hover{border-color:var(--base);color:var(--base);box-shadow:0 0 0 1px rgba(77,132,255,.3)}
 
 /* ── section frame ── */
 section{padding:clamp(4rem,10vh,7.5rem) 0}
@@ -99,7 +106,9 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:40
 /* ── timeline ── */
 .tl{display:grid;grid-template-columns:minmax(0,10rem) 1fr;gap:clamp(1rem,4vw,3rem)}
 @media(max-width:720px){.tl{grid-template-columns:1fr}}
-.tl-body{border-left:1px solid var(--rule);padding-left:clamp(1.4rem,3vw,2.6rem);position:relative}
+.tl-body{padding-left:clamp(1.4rem,3vw,2.6rem);position:relative}
+.tl-body::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--rule);transform:scaleY(0);transform-origin:top;transition:transform 600ms var(--ease)}
+.tl-body.in::before{transform:scaleY(1)}
 .node{position:relative;padding-bottom:3.2rem}
 .node:last-child{padding-bottom:0}
 .node::before{
@@ -137,24 +146,44 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:40
 
 /* ── awards ── */
 .wins{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.4rem}
-.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline}
+.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline;transition:border-color 200ms ease-out,box-shadow 200ms ease-out,background 150ms var(--ease-hover)}
+.win:hover{background:var(--ink-2);box-shadow:inset 2px 0 0 var(--signal-dim)}
 @media(max-width:720px){.win{grid-template-columns:1fr;gap:.3rem}}
 .win time{font-family:var(--mono);font-size:.74rem;color:var(--paper-faint);letter-spacing:.06em}
-.win strong{font-weight:500;font-size:1.06rem}
+.win strong{font-weight:500;font-size:1.06rem;transition:color 150ms var(--ease-hover)}
+.win:hover strong{color:var(--paper)}
 .win .res{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--base);text-transform:uppercase}
 .win.gold .res{color:var(--signal)}
+.win.gold:hover{box-shadow:inset 2px 0 0 var(--signal)}
 
 /* ── links ── */
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.6rem}
-.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background .3s}
-.links a:hover{background:var(--ink-2)}
-.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem}
+.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background 150ms var(--ease-hover),box-shadow 200ms ease-out}
+.links a:hover{background:var(--ink-2);box-shadow:inset 0 -2px 0 var(--signal-dim)}
+.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem;transition:color 150ms var(--ease-hover)}
 .links a span{font-family:var(--mono);font-size:.72rem;color:var(--paper-faint);letter-spacing:.03em}
 .links a:hover b{color:var(--signal)}
 
 footer{padding:4rem 0 5rem;border-top:1px solid var(--rule);color:var(--paper-faint);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em}
-footer a{color:var(--paper-dim);text-decoration:none}
+footer a{color:var(--paper-dim);text-decoration:none;transition:color 150ms var(--ease-hover)}
 footer a:hover{color:var(--signal)}
+
+/* ── arrow links: nudge on hover ── */
+.arrow-link{display:inline-flex;align-items:center;gap:.3em;transition:color 150ms var(--ease-hover),transform 150ms var(--ease-hover)}
+.arrow-link:hover{color:var(--signal);transform:translateX(2px)}
+
+/* ── reduced motion: gate ALL animation ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .rv{opacity:1;transform:none;will-change:auto}
+  .tl-body::before{transform:scaleY(1)}
+  [style*="transition-delay"]{transition-delay:0s!important}
+}
 
 /* ── contact form ── */
 .contact-form{max-width:32rem}
@@ -170,9 +199,9 @@ footer a:hover{color:var(--signal)}
 .contact-form button{
   font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
   background:transparent;border:1px solid var(--signal);color:var(--signal);
-  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background .25s,color .25s;
+  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background 150ms var(--ease-hover),color 150ms var(--ease-hover),transform 150ms var(--ease-hover);
 }
-.contact-form button:hover{background:var(--signal);color:var(--ink)}
+.contact-form button:hover{background:var(--signal);color:var(--ink);transform:scale(1.02)}
 .contact-form button:disabled{opacity:.5;cursor:not-allowed}
 .contact-form .hp{position:absolute;left:-9999px}
 .contact-form .msg{margin-top:1rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.04em}
@@ -184,19 +213,20 @@ footer a:hover{color:var(--signal)}
 
 <header>
   <div class="wrap">
-    <div class="hero-row rv">
-      <img src="julio.jpg" alt="Julio M Cruz" class="portrait">
+    <div class="hero-row">
+      <img src="julio.jpg" alt="Julio M Cruz" class="portrait rv">
       <div class="hero-identity">
-        <div class="lbl hero-lbl">Software Engineer · Founder</div>
-        <h1>Julio M Cruz</h1>
-        <p class="hero-intro">29+ years shipping production systems. Founded PerkOS and zkNexus.</p>
+        <div class="lbl hero-lbl rv">Software Engineer · Founder</div>
+        <h1 class="rv">Julio M Cruz</h1>
+        <p class="hero-intro rv">29+ years shipping production systems. Founded PerkOS and zkNexus.</p>
       </div>
     </div>
-    <div class="chips rv" style="transition-delay:.1s">
+    <div class="chips rv">
       <a class="chip" href="https://github.com/JulioMCruz">github ↗</a>
       <a class="chip" href="https://x.com/JulioMCruz">x ↗</a>
       <a class="chip" href="https://www.linkedin.com/in/juliomcruz/">linkedin ↗</a>
       <a class="chip" href="https://perkos.xyz">perkos.xyz ↗</a>
+      <a class="chip" href="https://stack.perkos.xyz/api/v2/x402/supported">x402 facilitator ↗</a>
     </div>
   </div>
 </header>
@@ -209,9 +239,9 @@ footer a:hover{color:var(--signal)}
     <div class="tl-body">
       <div class="node rv"><span class="yr">2001–2005 · Lima, Peru</span><h3>Where it started</h3><p>Analyst programmer at the National Office of Electoral Processes. Database engineer at the Ministry of Economy and Finance. Software architect at AVATAR. I know what building software inside an under-resourced institution feels like, because that is where I learned.</p></div>
       <div class="node rv"><span class="yr">2008–2019 · Virginia</span><h3>Enterprise systems</h3><p>Six years on corporate infrastructure at JACER. Five as lead developer at Contensive, on e-commerce and mission-critical systems, owning requirements through post-production support.</p></div>
-      <div class="node key rv"><span class="yr">2019–2025 · Washington DC</span><h3>Top Secret clearance</h3><p>Senior software engineer for the U.S. federal government. The Small Business Administration, then six years at the Department of State: C#, .NET, Azure, and identity work with OKTA, Azure AD and OAuth. Systems where a mistake is expensive.</p></div>
-      <div class="node key rv"><span class="yr">2021 to now · Nights and weekends</span><h3>Onchain, in parallel</h3><p>One hundred and sixty five public repositories built alongside the clearance job. Solidity, TypeScript, payment rails. A blockchain credential from MIT Professional Education. Thirty hackathon awards along the way.</p></div>
-      <div class="node key rv"><span class="yr">September 2025</span><h3>Left to build full time</h3><p>Founded PerkOS and zkNexus. Full time on the thing all of it was pointing at.</p></div>
+      <div class="node key rv"><span class="yr">2019–2025 · Washington DC</span><h3>Top Secret clearance</h3><p>Senior software engineer for the U.S. federal government. The Small Business Administration from 2019 to 2021, then the Department of State from 2021 to 2025: C#, .NET, Azure, and identity work with OKTA, Azure AD and OAuth. Systems where a mistake is expensive.</p></div>
+      <div class="node key rv"><span class="yr">2021 to now · Nights and weekends</span><h3>Onchain, in parallel</h3><p>One hundred and sixty five public repositories built alongside the clearance job. Solidity, TypeScript, payment rails. A blockchain credential from MIT Professional Education.</p></div>
+      <div class="node key rv"><span class="yr">September 2025</span><h3>Left to build full time</h3><p>Left the clearance job to work on PerkOS full time. Full time on the thing all of it was pointing at.</p></div>
     </div>
   </div>
 </section>
@@ -228,7 +258,7 @@ footer a:hover{color:var(--signal)}
       <div><time>Apr 3</time><span>Paycheck Protection Program opens. A nation of small businesses arrives at once.</span></div>
       <div><time>Apr 6</time><span class="hit">E-Tran, the loan portal, goes down. Unreachable for up to four hours.</span></div>
       <div><time>Apr 6</time><span>Every hour it is down, owners cannot reach the money keeping their people paid.</span></div>
-      <div><time>Apr 8</time><span class="out">A new entry point into the loan system ships. Built with AWS. About a week and a half of work.</span></div>
+      <div><time>Apr 8</time><span class="out">A new entry point into the loan system ships. Built with AWS.</span></div>
       <div><time>Apr 8</time><span>381,000 loans · $100 billion · 3,600 lenders, by that afternoon.</span></div>
       <div><time>Apr 16</time><span class="out">Funding exhausted. More than one million small businesses approved.</span></div>
     </div>
@@ -246,13 +276,13 @@ footer a:hover{color:var(--signal)}
       <div class="lbl rv">Now</div>
       <h2 class="rv">Building companies. Shipping production systems.</h2>
     </div>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">I founded PerkOS to bring AI teams to small businesses at prices they can afford. I founded zkNexus. Both are active. The work is infrastructure, payments, and coordination at scale.</p>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Most of what I build is open. One hundred sixty-five public repositories, three interoperable agent runtimes in production, and systems that run in government, enterprise, and onchain environments.</p>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">I founded PerkOS to bring AI teams to small businesses at prices they can afford. I founded zkNexus. Both are active.</p>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Most of what I build is open. One hundred sixty-five public repositories, three agent runtimes, and systems that run in government, enterprise, and onchain environments.</p>
     <div class="data rv">
       <div class="hl"><b>165</b><span>Public repositories on GitHub</span></div>
-      <div><b>3</b><span>Agent runtimes in production</span></div>
+      <div><b>3</b><span>Agent runtimes</span></div>
       <div><b>29+</b><span>Years writing software</span></div>
-      <div><b>6</b><span>Years with TS clearance at State</span></div>
+      <div><b>6</b><span>Years federal TS clearance</span></div>
     </div>
   </div>
 </section>
@@ -263,19 +293,24 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="shead">
       <div class="lbl rv">The record</div>
-      <h2 class="rv">Thirty hackathon awards. Ten first places.</h2>
+      <h2 class="rv">Hackathon awards.</h2>
     </div>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">Since 2022, across four years. Base is the ecosystem I keep coming back to.</p>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">Since 2022. Prize at each of the three IRL ETHGlobal hackathons in 2026 so far. Base is the ecosystem I keep coming back to.</p>
     <div class="wins">
+      <div class="win rv"><time>Apr 2026</time><strong>ETHGlobal Cannes <span style="color:var(--paper-faint);font-weight:300">· Flow Broker</span></strong><span class="res"><a href="https://ethglobal.com/showcase/flow-broker-ez5rr" style="color:inherit;text-decoration:none">Uniswap Foundation 3rd · Chainlink CRE</a></span></div>
+      <div class="win rv"><time>Jun 2026</time><strong>ETHGlobal NYC <span style="color:var(--paper-faint);font-weight:300">· Stream Vaults</span></strong><span class="res"><a href="https://ethglobal.com/showcase/stream-vaults-m9qz5" style="color:inherit;text-decoration:none">Ledger AI Agents 4th · Uniswap Foundation 2nd</a></span></div>
+      <div class="win gold rv"><time>Jul 2026</time><strong>ETHGlobal Lisbon <span style="color:var(--paper-faint);font-weight:300">· EQLTY</span></strong><span class="res"><a href="https://ethglobal.com/showcase/eqlty-smqdg" style="color:inherit;text-decoration:none">The Graph · Best AI Use Case (Continuity) · 1st</a></span></div>
+      <div class="win rv"><time>2026</time><strong>HackMoney <span style="color:var(--paper-faint);font-weight:300">· UniPerk</span></strong><span class="res"><a href="https://ethglobal.com/showcase/uniperk-2vcmt" style="color:inherit;text-decoration:none">ENS · Integrate ENS · Prize Pool</a></span></div>
+      <div class="win rv"><time>Feb 2026</time><strong>ETHDenver <span style="color:var(--paper-faint);font-weight:300">· SWARM</span></strong><span class="res"><a href="https://devfolio.co/projects/swarm-548b" style="color:inherit;text-decoration:none">1st On-Chain Automation with Hedera Schedule Service</a></span></div>
       <div class="win gold rv"><time>May 2025</time><strong>Base Batches LatAm <span style="color:var(--paper-faint);font-weight:300">· AI ART3 HUB</span></strong><span class="res">Winner</span></div>
       <div class="win gold rv"><time>Oct 2024</time><strong>Base Around The World LatAm <span style="color:var(--paper-faint);font-weight:300">· CrediTalent</span></strong><span class="res">Winner</span></div>
       <div class="win rv"><time>Jul 2025</time><strong>ETHGlobal Cannes <span style="color:var(--paper-faint);font-weight:300">· PolyBet</span></strong><span class="res">Finalist</span></div>
-      <div class="win rv"><time>Jun 2025</time><strong>ETHGlobal Prague <span style="color:var(--paper-faint);font-weight:300">· Kairos</span></strong><span class="res">Flare, 1st</span></div>
+      <div class="win rv"><time>Jun 2025</time><strong>ETHGlobal Prague <span style="color:var(--paper-faint);font-weight:300">· Kairos</span></strong><span class="res">Flare</span></div>
       <div class="win rv"><time>Mar 2025</time><strong>ETHSF <span style="color:var(--paper-faint);font-weight:300">· My Moments</span></strong><span class="res">Base, 3rd</span></div>
       <div class="win rv"><time>Feb 2025</time><strong>Agentic Ethereum <span style="color:var(--paper-faint);font-weight:300">· Infinity</span></strong><span class="res">Coinbase AgentKit</span></div>
       <div class="win rv"><time>Oct 2024</time><strong>ETHGlobal San Francisco <span style="color:var(--paper-faint);font-weight:300">· Aurum</span></strong><span class="res">Chronicle, 1st</span></div>
     </div>
-    <p class="rv" style="margin-top:1.8rem"><a href="https://github.com/JulioMCruz" style="font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--paper-faint);text-decoration:none">Full record on GitHub ↗</a></p>
+    <p class="rv" style="margin-top:1.8rem"><a href="https://github.com/JulioMCruz" class="arrow-link" style="font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--paper-faint);text-decoration:none">Full record on GitHub ↗</a></p>
   </div>
 </section>
 
@@ -333,15 +368,19 @@ footer a:hover{color:var(--signal)}
 </footer>
 
 <script>
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'-80px 0px',threshold:.06});
 document.querySelectorAll('.rv').forEach((el,i)=>{
-  if(el.closest('header')){el.classList.add('in');return}
+  if(el.closest('header')){
+    requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
+    return;
+  }
   const p=el.parentElement;
   if(p&&(p.classList.contains('log')||p.classList.contains('wins')||p.classList.contains('links')||p.classList.contains('tl-body')||p.classList.contains('data'))){
     el.style.transitionDelay=(Array.from(p.children).indexOf(el)*0.07)+'s';
   }
   io.observe(el);
 });
+document.querySelectorAll('.tl-body').forEach(el=>{io.observe(el)});
 
 (function(){
   const form=document.getElementById('contact-form');
