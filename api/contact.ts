@@ -9,7 +9,7 @@ interface ContactRequest {
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'contact@juliomcruz.xyz'
 const TO_EMAIL = process.env.TO_EMAIL || 'julio.cruz@eb-ms.net'
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://juliomcruz.xyz'
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGIN || 'https://www.juliomcruz.xyz,https://juliomcruz.xyz').split(',')
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -19,16 +19,21 @@ function sanitize(str: string): string {
   return str.trim().slice(0, 5000)
 }
 
-function corsHeaders(): Record<string, string> {
+function getAllowedOrigin(requestOrigin: string | undefined): string {
+  if (requestOrigin && ALLOWED_ORIGINS.includes(requestOrigin)) return requestOrigin
+  return ALLOWED_ORIGINS[0]
+}
+
+function corsHeaders(requestOrigin: string | undefined): Record<string, string> {
   return {
-    'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+    'Access-Control-Allow-Origin': getAllowedOrigin(requestOrigin),
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   }
 }
 
-function setCorsHeaders(res: VercelResponse): void {
-  const headers = corsHeaders()
+function setCorsHeaders(res: VercelResponse, requestOrigin: string | undefined): void {
+  const headers = corsHeaders(requestOrigin)
   Object.entries(headers).forEach(([key, value]) => {
     res.setHeader(key, value)
   })
@@ -62,7 +67,8 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ): Promise<void> {
-  setCorsHeaders(res)
+  const requestOrigin = req.headers.origin as string | undefined
+  setCorsHeaders(res, requestOrigin)
 
   if (req.method === 'OPTIONS') {
     res.status(204).end()
