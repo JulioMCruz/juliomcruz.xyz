@@ -46,6 +46,7 @@
   --serif:"Newsreader",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --gut:clamp(1.25rem,5vw,4rem);
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -55,20 +56,27 @@ body{
   line-height:1.62;font-weight:300;-webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-/* grain */
+/* grain + subtle ambient */
 body::before{
   content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain-drift 20s ease-in-out infinite;
 }
+@keyframes grain-drift{0%,100%{opacity:.035}50%{opacity:.025}}
 .wrap{max-width:74rem;margin:0 auto;padding:0 var(--gut)}
 a{color:inherit}
 .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-faint);font-weight:500}
 .rule{height:1px;background:var(--rule);border:0;margin:0}
 
 /* ── reveal ── */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.rv{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:translateY(0)}
+/* hero stagger */
+.portrait.rv{transition-delay:0s}
+.hero-lbl.rv{transition-delay:.04s}
+.hero-identity h1.rv{transition-delay:.08s}
+.hero-intro.rv{transition-delay:.12s}
+.chips.rv{transition-delay:.18s}
 
 /* ── hero ── */
 header{position:relative;padding:clamp(2.5rem,6vh,4rem) 0 clamp(2rem,4vh,3rem)}
@@ -85,9 +93,9 @@ h1{
 .chip{
   font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:.44rem .8rem;
   border:1px solid var(--rule);border-radius:2px;color:var(--paper-dim);text-decoration:none;
-  transition:border-color .25s,color .25s,background .25s;
+  transition:border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease);
 }
-.chip:hover{border-color:var(--signal);color:var(--signal)}
+.chip:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-2px)}
 .chip.b:hover{border-color:var(--base);color:var(--base)}
 
 /* ── section frame ── */
@@ -137,24 +145,34 @@ h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:40
 
 /* ── awards ── */
 .wins{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.4rem}
-.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline}
+.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline;transition:transform .2s var(--ease),background .2s var(--ease)}
+.win:hover{transform:translateY(-2px);background:var(--ink-2)}
 @media(max-width:720px){.win{grid-template-columns:1fr;gap:.3rem}}
 .win time{font-family:var(--mono);font-size:.74rem;color:var(--paper-faint);letter-spacing:.06em}
-.win strong{font-weight:500;font-size:1.06rem}
+.win strong{font-weight:500;font-size:1.06rem;transition:color .2s var(--ease)}
+.win:hover strong{color:var(--paper)}
 .win .res{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--base);text-transform:uppercase}
 .win.gold .res{color:var(--signal)}
 
 /* ── links ── */
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.6rem}
-.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background .3s}
-.links a:hover{background:var(--ink-2)}
-.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem}
+.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background .2s var(--ease),transform .2s var(--ease)}
+.links a:hover{background:var(--ink-2);transform:translateY(-2px)}
+.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem;transition:color .2s var(--ease)}
 .links a span{font-family:var(--mono);font-size:.72rem;color:var(--paper-faint);letter-spacing:.03em}
 .links a:hover b{color:var(--signal)}
 
 footer{padding:4rem 0 5rem;border-top:1px solid var(--rule);color:var(--paper-faint);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em}
-footer a{color:var(--paper-dim);text-decoration:none}
-footer a:hover{color:var(--signal)}
+footer a{color:var(--paper-dim);text-decoration:none;transition:color .2s var(--ease),transform .2s var(--ease);display:inline-block}
+footer a:hover{color:var(--signal);transform:translateY(-1px)}
+
+/* ── reduced motion ── */
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  body::before{animation:none}
+  .chip,.win,.links a,.contact-form button,footer a{transition:none;transform:none!important}
+  .chip:hover,.win:hover,.links a:hover,.contact-form button:hover,footer a:hover{transform:none!important}
+}
 
 /* ── contact form ── */
 .contact-form{max-width:32rem}
@@ -170,9 +188,9 @@ footer a:hover{color:var(--signal)}
 .contact-form button{
   font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
   background:transparent;border:1px solid var(--signal);color:var(--signal);
-  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background .25s,color .25s;
+  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease);
 }
-.contact-form button:hover{background:var(--signal);color:var(--ink)}
+.contact-form button:hover{background:var(--signal);color:var(--ink);transform:scale(1.02)}
 .contact-form button:disabled{opacity:.5;cursor:not-allowed}
 .contact-form .hp{position:absolute;left:-9999px}
 .contact-form .msg{margin-top:1rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.04em}
@@ -184,15 +202,15 @@ footer a:hover{color:var(--signal)}
 
 <header>
   <div class="wrap">
-    <div class="hero-row rv">
-      <img src="julio.jpg" alt="Julio M Cruz" class="portrait">
+    <div class="hero-row">
+      <img src="julio.jpg" alt="Julio M Cruz" class="portrait rv">
       <div class="hero-identity">
-        <div class="lbl hero-lbl">Software Engineer · Founder</div>
-        <h1>Julio M Cruz</h1>
-        <p class="hero-intro">29+ years shipping production systems. Founded PerkOS and zkNexus.</p>
+        <div class="lbl hero-lbl rv">Software Engineer · Founder</div>
+        <h1 class="rv">Julio M Cruz</h1>
+        <p class="hero-intro rv">29+ years shipping production systems. Founded PerkOS and zkNexus.</p>
       </div>
     </div>
-    <div class="chips rv" style="transition-delay:.1s">
+    <div class="chips rv">
       <a class="chip" href="https://github.com/JulioMCruz">github ↗</a>
       <a class="chip" href="https://x.com/JulioMCruz">x ↗</a>
       <a class="chip" href="https://www.linkedin.com/in/juliomcruz/">linkedin ↗</a>
@@ -341,10 +359,13 @@ footer a:hover{color:var(--signal)}
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
 document.querySelectorAll('.rv').forEach((el,i)=>{
-  if(el.closest('header')){el.classList.add('in');return}
+  if(el.closest('header')){
+    requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
+    return;
+  }
   const p=el.parentElement;
   if(p&&(p.classList.contains('log')||p.classList.contains('wins')||p.classList.contains('links')||p.classList.contains('tl-body')||p.classList.contains('data'))){
-    el.style.transitionDelay=(Array.from(p.children).indexOf(el)*0.07)+'s';
+    el.style.transitionDelay=(Array.from(p.children).indexOf(el)*0.045)+'s';
   }
   io.observe(el);
 });
