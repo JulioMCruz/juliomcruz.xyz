@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://juliomcruz.xyz/sitemap.xml
+Sitemap: https://www.juliomcruz.xyz/sitemap.xml
