@@ -1,0 +1,9 @@
+# Ignore everything except the API function and config
+# The static site is served by GitHub Pages, not Vercel
+
+index.html
+julio.jpg
+robots.txt
+sitemap.xml
+CNAME
+*.md

@@ -5,6 +5,50 @@ Personal site. One page, no framework, no build step.
 `index.html` is the whole thing. Edit it and push; GitHub Pages serves it at
 [juliomcruz.xyz](https://juliomcruz.xyz).
 
+## Architecture
+
+| Component | Host | Domain |
+|-----------|------|--------|
+| Static site | GitHub Pages | juliomcruz.xyz |
+| Contact form API | Vercel | form.juliomcruz.xyz |
+
+The contact form on the site posts to `https://form.juliomcruz.xyz/contact`, which is a
+Vercel serverless function that sends email via Resend.
+
+## Contact Form Setup (Vercel)
+
+### 1. Deploy to Vercel
+
+Link this repository to a Vercel project. Vercel will deploy the `api/contact.ts` function.
+
+### 2. Set environment variables
+
+In the Vercel Dashboard → Project → Settings → Environment Variables, add:
+
+| Variable | Value | Required |
+|----------|-------|----------|
+| `RESEND_API_KEY` | Your Resend API key | Yes |
+| `FROM_EMAIL` | `contact@juliomcruz.xyz` (default) | No |
+| `TO_EMAIL` | `julio.cruz@eb-ms.net` (default) | No |
+| `ALLOWED_ORIGIN` | `https://juliomcruz.xyz` (default) | No |
+
+**Never commit `RESEND_API_KEY` to the repository.**
+
+### 3. Add custom domain
+
+In Vercel Dashboard → Project → Settings → Domains, add `form.juliomcruz.xyz`.
+
+### 4. Add DNS record
+
+In Route 53 (or your DNS provider), add a CNAME record for the form subdomain:
+
+| Type | Name | Value |
+|------|------|-------|
+| CNAME | form | cname.vercel-dns.com |
+
+`cname.vercel-dns.com` is Vercel's documented target for custom domains. The apex
+(`juliomcruz.xyz`) remains on GitHub Pages; only the `form` subdomain points to Vercel.
+
 ## Keeping it true
 
 Every number and date on the page is verified, not estimated. If you change a claim,
@@ -25,7 +69,9 @@ The copy is written to stay accurate either way.
 
 ## Local preview
 
-    python3 -m http.server 8000
+```bash
+python3 -m http.server 8000
+```
 
 ## Design notes
 
