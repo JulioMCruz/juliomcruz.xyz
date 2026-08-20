@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julio M Cruz</title>
+<meta name="description" content="Founder of PerkOS. Software engineer, 25 years. I build AI teams for small businesses.">
+<meta property="og:title" content="Julio M Cruz">
+<meta property="og:description" content="Founder of PerkOS. I build AI teams for small businesses.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://juliomcruz.xyz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0f13; --ink-2:#12161c; --rule:#232a33;
+  --paper:#e9e4d9; --paper-dim:#9aa3ad; --paper-faint:#5f6a76;
+  --signal:#e0a145; --signal-dim:#8a6428;
+  --base:#4d84ff;
+  --serif:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gut:clamp(1.25rem,5vw,4rem);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:var(--serif);font-size:clamp(1.02rem,.55vw + .9rem,1.2rem);
+  line-height:1.62;font-weight:300;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* grain */
+body::before{
+  content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:74rem;margin:0 auto;padding:0 var(--gut)}
+a{color:inherit}
+.lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-faint);font-weight:500}
+.rule{height:1px;background:var(--rule);border:0;margin:0}
+
+/* ── reveal ── */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ── hero ── */
+header{position:relative;padding:clamp(4rem,12vh,9rem) 0 clamp(3rem,7vh,5rem)}
+header::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(90rem 42rem at 12% -8%,rgba(224,161,69,.10),transparent 60%);
+}
+.eyebrow{display:flex;gap:.85rem;align-items:center;flex-wrap:wrap;margin-bottom:2.2rem}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal)}
+h1{
+  font-size:clamp(3.1rem,10.5vw,8.2rem);line-height:.92;margin:0;font-weight:400;
+  letter-spacing:-.035em;
+}
+h1 em{font-style:italic;font-weight:300;color:var(--signal)}
+.tagline{
+  font-size:clamp(1.35rem,2.6vw,2.1rem);line-height:1.32;margin:1.9rem 0 0;max-width:24ch;
+  font-weight:400;letter-spacing:-.015em;
+}
+.sub{margin:1.6rem 0 0;max-width:56ch;color:var(--paper-dim);font-size:1.05rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.4rem}
+.chip{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:.44rem .8rem;
+  border:1px solid var(--rule);border-radius:2px;color:var(--paper-dim);text-decoration:none;
+  transition:border-color .25s,color .25s,background .25s;
+}
+.chip:hover{border-color:var(--signal);color:var(--signal)}
+.chip.b:hover{border-color:var(--base);color:var(--base)}
+
+/* ── section frame ── */
+section{padding:clamp(4rem,10vh,7.5rem) 0}
+.shead{display:grid;grid-template-columns:minmax(0,10rem) 1fr;gap:clamp(1rem,4vw,3rem);align-items:baseline;margin-bottom:3rem}
+@media(max-width:720px){.shead{grid-template-columns:1fr;gap:.7rem}}
+h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:400;letter-spacing:-.025em;max-width:20ch}
+
+/* ── timeline ── */
+.tl{display:grid;grid-template-columns:minmax(0,10rem) 1fr;gap:clamp(1rem,4vw,3rem)}
+@media(max-width:720px){.tl{grid-template-columns:1fr}}
+.tl-body{border-left:1px solid var(--rule);padding-left:clamp(1.4rem,3vw,2.6rem);position:relative}
+.node{position:relative;padding-bottom:3.2rem}
+.node:last-child{padding-bottom:0}
+.node::before{
+  content:"";position:absolute;left:calc(-1 * clamp(1.4rem,3vw,2.6rem) - 4px);top:.62em;
+  width:7px;height:7px;border-radius:50%;background:var(--ink);border:1px solid var(--paper-faint);
+}
+.node.key::before{background:var(--signal);border-color:var(--signal);box-shadow:0 0 14px rgba(224,161,69,.55)}
+.node .yr{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--signal);display:block;margin-bottom:.35rem}
+.node h3{margin:0 0 .5rem;font-size:1.28rem;font-weight:500;letter-spacing:-.01em}
+.node p{margin:0;color:var(--paper-dim);max-width:60ch}
+
+/* ── the incident ── */
+.incident{background:var(--ink-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.log{
+  font-family:var(--mono);font-size:clamp(.78rem,1.4vw,.9rem);line-height:2.05;
+  border-left:2px solid var(--signal-dim);padding-left:clamp(1rem,2.5vw,1.8rem);margin:2.5rem 0 0;
+}
+.log div{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;color:var(--paper-dim)}
+@media(max-width:620px){.log div{grid-template-columns:1fr;gap:0;line-height:1.7;margin-bottom:.8rem}}
+.log time{color:var(--paper-faint)}
+.log .hit{color:var(--signal);font-weight:500}
+.log .out{color:var(--paper)}
+.pull{
+  font-size:clamp(1.3rem,2.7vw,1.85rem);line-height:1.42;margin:3.2rem 0 0;max-width:34ch;
+  font-style:italic;font-weight:300;color:var(--paper);
+}
+.src{margin-top:1.6rem;font-family:var(--mono);font-size:.7rem;color:var(--paper-faint);letter-spacing:.04em}
+
+/* ── data grid ── */
+.data{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.data div{padding:1.7rem 1.4rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.data b{display:block;font-family:var(--mono);font-size:clamp(1.5rem,3.4vw,2.15rem);font-weight:500;color:var(--paper);letter-spacing:-.02em}
+.data span{display:block;margin-top:.45rem;font-size:.85rem;color:var(--paper-faint);line-height:1.45}
+.data .hl b{color:var(--signal)}
+
+/* ── awards ── */
+.wins{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.4rem}
+.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline}
+@media(max-width:720px){.win{grid-template-columns:1fr;gap:.3rem}}
+.win time{font-family:var(--mono);font-size:.74rem;color:var(--paper-faint);letter-spacing:.06em}
+.win strong{font-weight:500;font-size:1.06rem}
+.win .res{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--base);text-transform:uppercase}
+.win.gold .res{color:var(--signal)}
+
+/* ── links ── */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.6rem}
+.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background .3s}
+.links a:hover{background:var(--ink-2)}
+.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem}
+.links a span{font-family:var(--mono);font-size:.72rem;color:var(--paper-faint);letter-spacing:.03em}
+.links a:hover b{color:var(--signal)}
+
+footer{padding:4rem 0 5rem;border-top:1px solid var(--rule);color:var(--paper-faint);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em}
+footer a{color:var(--paper-dim);text-decoration:none}
+footer a:hover{color:var(--signal)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="dot"></span><span class="lbl">Founder of PerkOS &nbsp;·&nbsp; Virginia, US</span></div>
+    <h1 class="rv" style="transition-delay:.06s">Julio<br>M <em>Cruz</em></h1>
+    <p class="tagline rv" style="transition-delay:.14s">I build AI teams for small businesses.</p>
+    <p class="sub rv" style="transition-delay:.2s">Twenty five years writing software. Six of them for the U.S. Department of State with a Top Secret clearance. I started in Lima, Peru, and I am building for the people I started out among.</p>
+    <div class="chips rv" style="transition-delay:.26s">
+      <a class="chip" href="https://perkos.xyz">perkos.xyz ↗</a>
+      <a class="chip" href="https://github.com/JulioMCruz">github ↗</a>
+      <a class="chip" href="https://x.com/JulioMCruz">x ↗</a>
+      <a class="chip" href="https://www.linkedin.com/in/juliomcruz/">linkedin ↗</a>
+      <a class="chip b" href="https://stack.perkos.xyz/api/v2/x402/supported">x402 facilitator ↗</a>
+    </div>
+  </div>
+</header>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap tl">
+    <div class="lbl rv">The arc</div>
+    <div class="tl-body">
+      <div class="node rv"><span class="yr">2001–2005 · Lima, Peru</span><h3>Where it started</h3><p>Analyst programmer at the National Office of Electoral Processes. Database engineer at the Ministry of Economy and Finance. Software architect at AVATAR. I know what building software inside an under-resourced institution feels like, because that is where I learned.</p></div>
+      <div class="node rv"><span class="yr">2008–2019 · Virginia</span><h3>Enterprise systems</h3><p>Six years on corporate infrastructure at JACER. Five as lead developer at Contensive, on e-commerce and mission-critical systems, owning requirements through post-production support.</p></div>
+      <div class="node key rv"><span class="yr">2019–2025 · Washington DC</span><h3>Top Secret clearance</h3><p>Senior software engineer for the U.S. federal government. The Small Business Administration, then six years at the Department of State: C#, .NET, Azure, and identity work with OKTA, Azure AD and OAuth. Systems where a mistake is expensive.</p></div>
+      <div class="node key rv"><span class="yr">2021 to now · Nights and weekends</span><h3>Onchain, in parallel</h3><p>One hundred and sixty five public repositories built alongside the clearance job. Solidity, TypeScript, payment rails. A blockchain credential from MIT Professional Education. Thirty hackathon awards along the way.</p></div>
+      <div class="node key rv"><span class="yr">September 2025</span><h3>Left to build PerkOS</h3><p>Full time on the thing all of it was pointing at.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="incident">
+  <div class="wrap">
+    <div class="shead">
+      <div class="lbl rv">April 2020</div>
+      <h2 class="rv">The week that decided what I would build for.</h2>
+    </div>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">I was a contractor engineer inside the Small Business Administration when the Paycheck Protection Program launched. It was the emergency lifeline for American small businesses: forgivable loans that decided whether a restaurant, a shop, or a two person agency survived the year. The systems were not built for it.</p>
+
+    <div class="log rv">
+      <div><time>Apr 3</time><span>Paycheck Protection Program opens. A nation of small businesses arrives at once.</span></div>
+      <div><time>Apr 6</time><span class="hit">E-Tran, the loan portal, goes down. Unreachable for up to four hours.</span></div>
+      <div><time>Apr 6</time><span>Every hour it is down, owners cannot reach the money keeping their people paid.</span></div>
+      <div><time>Apr 8</time><span class="out">A new entry point into the loan system ships. Built with AWS. About a week and a half of work.</span></div>
+      <div><time>Apr 8</time><span>381,000 loans · $100 billion · 3,600 lenders, by that afternoon.</span></div>
+      <div><time>Apr 16</time><span class="out">Funding exhausted. More than one million small businesses approved.</span></div>
+    </div>
+
+    <p class="rv" style="margin-top:2.6rem;max-width:62ch;color:var(--paper-dim)">The SBA normally backs about $25 billion a year in 7(a) loans. PPP asked the same infrastructure to move that in days, roughly fifty times normal capacity. At that volume the hard part is never the feature. It is consistency under load, recovery you can trust, and designing for the failure rather than the demo, because a partial write is somebody's payroll.</p>
+
+    <p class="pull rv">Every one of those millions of clicks was an owner trying to keep their business alive. That is the same person I build for now.</p>
+    <p class="src rv">Timeline corroborated by contemporaneous reporting, including American Banker, "After opening-day fiasco, SBA upgrades lender portal with Amazon assist."</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="lbl rv">Now</div>
+      <h2 class="rv">PerkOS. A small business hires a team the way it would hire people.</h2>
+    </div>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">Pick a team from industry templates, sign in with a wallet, and each teammate is provisioned in one click. A lead plans the work, the workers execute on a shared board, and nothing goes out until you approve it. <strong style="color:var(--paper);font-weight:500">They draft, you approve.</strong></p>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">The hard part was never the AI. An always-on agent container costs more per month than a small business will pay for the whole product, which is why the category keeps drifting upmarket. So I built hibernation: idle agents freeze, their state encrypted and stored, rebuilt on demand when work arrives. That is what makes a price a corner shop can actually pay.</p>
+    <div class="data rv">
+      <div class="hl"><b>~$0.02</b><span>Monthly cost of an idle teammate, down from about $30</span></div>
+      <div><b>93.5%</b><span>Provisioning success across 433 deployments</span></div>
+      <div><b>94</b><span>Repositories, built solo and unfunded</span></div>
+      <div><b>3</b><span>Interoperable agent runtimes in production</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="lbl rv">The record</div>
+      <h2 class="rv">Thirty hackathon awards. Ten first places.</h2>
+    </div>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">Since 2022, across four years. Base is the ecosystem I keep coming back to.</p>
+    <div class="wins">
+      <div class="win gold rv"><time>May 2025</time><strong>Base Batches LatAm <span style="color:var(--paper-faint);font-weight:300">· AI ART3 HUB</span></strong><span class="res">Winner</span></div>
+      <div class="win gold rv"><time>Oct 2024</time><strong>Base Around The World LatAm <span style="color:var(--paper-faint);font-weight:300">· CrediTalent</span></strong><span class="res">Winner</span></div>
+      <div class="win rv"><time>Jul 2025</time><strong>ETHGlobal Cannes <span style="color:var(--paper-faint);font-weight:300">· PolyBet</span></strong><span class="res">Finalist</span></div>
+      <div class="win rv"><time>Jun 2025</time><strong>ETHGlobal Prague <span style="color:var(--paper-faint);font-weight:300">· Kairos</span></strong><span class="res">Flare, 1st</span></div>
+      <div class="win rv"><time>Mar 2025</time><strong>ETHSF <span style="color:var(--paper-faint);font-weight:300">· My Moments</span></strong><span class="res">Base, 3rd</span></div>
+      <div class="win rv"><time>Feb 2025</time><strong>Agentic Ethereum <span style="color:var(--paper-faint);font-weight:300">· Infinity</span></strong><span class="res">Coinbase AgentKit</span></div>
+      <div class="win rv"><time>Oct 2024</time><strong>ETHGlobal San Francisco <span style="color:var(--paper-faint);font-weight:300">· Aurum</span></strong><span class="res">Chronicle, 1st</span></div>
+    </div>
+    <p class="rv" style="margin-top:1.8rem"><a href="https://github.com/JulioMCruz" style="font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--paper-faint);text-decoration:none">Full record on GitHub ↗</a></p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="lbl rv">Elsewhere</div>
+      <h2 class="rv">Most of it is open. Read the thing rather than take my word for it.</h2>
+    </div>
+    <div class="links">
+      <a class="rv" href="https://perkos.xyz"><b>PerkOS</b><span>the product, live</span></a>
+      <a class="rv" href="https://github.com/PerkOS-xyz"><b>PerkOS on GitHub</b><span>94 repositories</span></a>
+      <a class="rv" href="https://github.com/JulioMCruz"><b>GitHub</b><span>165 own repos · 0xJMC</span></a>
+      <a class="rv" href="https://stack.perkos.xyz/api/v2/x402/supported"><b>x402 facilitator</b><span>running on Base</span></a>
+      <a class="rv" href="https://x.com/JulioMCruz"><b>X</b><span>@JulioMCruz</span></a>
+      <a class="rv" href="https://www.linkedin.com/in/juliomcruz/"><b>LinkedIn</b><span>in/juliomcruz</span></a>
+      <a class="rv" href="https://t.me/JulioMCruz"><b>Telegram</b><span>t.me/JulioMCruz</span></a>
+      <a class="rv" href="mailto:julio.cruz@perkos.xyz"><b>Email</b><span>julio.cruz@perkos.xyz</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Julio M Cruz · Building <a href="https://perkos.xyz">PerkOS</a> · Virginia, US
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  if(el.closest('header')){el.classList.add('in');return}
+  const p=el.parentElement;
+  if(p&&(p.classList.contains('log')||p.classList.contains('wins')||p.classList.contains('links')||p.classList.contains('tl-body')||p.classList.contains('data'))){
+    el.style.transitionDelay=(Array.from(p.children).indexOf(el)*0.07)+'s';
+  }
+  io.observe(el);
+});
+</script>
+</body>
+</html>
