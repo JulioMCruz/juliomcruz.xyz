@@ -1,8 +1,12 @@
-# DNS: juliomcruz.xyz on Route 53 → GitHub Pages
+# DNS: juliomcruz.xyz on Route 53
 
-The repo already ships `CNAME` with the domain, so GitHub is ready. What is missing is the
-DNS, currently pointing at a registrar redirect service (`15.197.225.128`,
-`3.33.251.168`), which is what forwards the domain to X.
+## Domain Layout
+
+| Subdomain | Target | Purpose |
+|-----------|--------|---------|
+| juliomcruz.xyz (apex) | GitHub Pages | Static site |
+| www.juliomcruz.xyz | GitHub Pages | Redirect to apex |
+| form.juliomcruz.xyz | Vercel | Contact form API |
 
 ## Order matters
 
@@ -28,7 +32,7 @@ Save as `records.json`, replacing `ZONEID`:
 
 ```json
 {
-  "Comment": "GitHub Pages",
+  "Comment": "GitHub Pages + Vercel contact form",
   "Changes": [
     {
       "Action": "UPSERT",
@@ -51,6 +55,15 @@ Save as `records.json`, replacing `ZONEID`:
         "Type": "CNAME",
         "TTL": 300,
         "ResourceRecords": [ { "Value": "juliomcruz.github.io" } ]
+      }
+    },
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "form.juliomcruz.xyz",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [ { "Value": "cname.vercel-dns.com" } ]
       }
     }
   ]
@@ -88,11 +101,17 @@ This is the step that actually flips the domain, and the one people forget.
 Once DNS resolves, GitHub issues a Let's Encrypt certificate automatically. It can take up
 to an hour. Then GitHub → Settings → Pages → **Enforce HTTPS**.
 
+### 6. Add form subdomain to Vercel
+
+In Vercel Dashboard → Project → Settings → Domains, add `form.juliomcruz.xyz`. Vercel will
+verify ownership via the CNAME record added in step 2.
+
 ## Verify
 
 ```bash
-dig +short juliomcruz.xyz A          # the four 185.199.x addresses
-dig +short www.juliomcruz.xyz CNAME  # juliomcruz.github.io
+dig +short juliomcruz.xyz A            # the four 185.199.x addresses
+dig +short www.juliomcruz.xyz CNAME    # juliomcruz.github.io
+dig +short form.juliomcruz.xyz CNAME   # cname.vercel-dns.com
 curl -sI https://juliomcruz.xyz | head -1
 ```
 
