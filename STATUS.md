@@ -2,6 +2,26 @@
 
 Last updated **2026-08-20**. Update this file when something below changes.
 
+## Identity pass (2026-08-20)
+
+Julio requested an identity pass on this date. Changes made:
+
+- **Profile photo**: Added GitHub avatar as `julio.jpg` in header next to name
+- **Name treatment**: "Julio M Cruz" now on a single line, not wrapped/stacked, not italicized
+- **Eyebrow**: Changed from "Founder of PerkOS" to "Software Engineer Founder"
+- **Hero tagline**: Changed from "I build AI teams for small businesses" to "29+ years shipping production systems"
+- **Experience years**: Changed from "Twenty five years" to "29+ years" (Julio locked 29 years for vault, wants the site to say 29+; X bio stays without a year count)
+- **Founder framing**: Now software engineer founder, not PerkOS-only. Mentions both PerkOS and zkNexus as companies he founded
+- **zkNexus**: Named as company he founded. No product claims invented
+- **CodaLabs**: Omitted per request
+- **Email**: Changed from julio.cruz@perkos.xyz to julio.cruz@eb-ms.net
+- **Footer**: Changed from "Building PerkOS" to "Software Engineer Founder"
+- **"Now" section**: Reframed to be about him as a builder/founder, not a PerkOS product pitch. Demoted product-specific KPIs ($0.02 idle, 93.5% / 433 deployments)
+- **Elsewhere links**: Reordered to put GitHub/X/LinkedIn first, PerkOS as one of many, removed x402 facilitator link
+- **April 2020 section**: Preserved as event log with visual contrast (per design intent)
+- **No em dashes**: Verified date ranges use en dashes (–)
+- **No invented facts**: All claims verified against existing canon
+
 ## Where things stand
 
 Everything on our side is done and verified. The only blocker is DNS propagation at the

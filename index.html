@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Julio M Cruz</title>
-<meta name="description" content="Founder of PerkOS. Software engineer, 25 years. I build AI teams for small businesses.">
+<meta name="description" content="Software Engineer Founder. 29+ years shipping production systems. Created PerkOS and zkNexus.">
 <meta property="og:title" content="Julio M Cruz">
-<meta property="og:description" content="Founder of PerkOS. I build AI teams for small businesses.">
+<meta property="og:description" content="Software Engineer Founder. 29+ years shipping production systems.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://juliomcruz.xyz">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,11 +53,12 @@ header::after{
 }
 .eyebrow{display:flex;gap:.85rem;align-items:center;flex-wrap:wrap;margin-bottom:2.2rem}
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal)}
+.hero-identity{display:flex;align-items:center;gap:clamp(1.5rem,3vw,2.5rem);flex-wrap:wrap}
+.portrait{width:clamp(5rem,10vw,7rem);height:clamp(5rem,10vw,7rem);border-radius:50%;object-fit:cover;border:2px solid var(--rule);flex-shrink:0}
 h1{
-  font-size:clamp(3.1rem,10.5vw,8.2rem);line-height:.92;margin:0;font-weight:400;
-  letter-spacing:-.035em;
+  font-size:clamp(2.4rem,6vw,4.8rem);line-height:1;margin:0;font-weight:400;
+  letter-spacing:-.035em;white-space:nowrap;
 }
-h1 em{font-style:italic;font-weight:300;color:var(--signal)}
 .tagline{
   font-size:clamp(1.35rem,2.6vw,2.1rem);line-height:1.32;margin:1.9rem 0 0;max-width:24ch;
   font-weight:400;letter-spacing:-.015em;
@@ -143,16 +144,18 @@ footer a:hover{color:var(--signal)}
 
 <header>
   <div class="wrap">
-    <div class="eyebrow rv"><span class="dot"></span><span class="lbl">Founder of PerkOS &nbsp;·&nbsp; Virginia, US</span></div>
-    <h1 class="rv" style="transition-delay:.06s">Julio<br>M <em>Cruz</em></h1>
-    <p class="tagline rv" style="transition-delay:.14s">I build AI teams for small businesses.</p>
-    <p class="sub rv" style="transition-delay:.2s">Twenty five years writing software. Six of them for the U.S. Department of State with a Top Secret clearance. I started in Lima, Peru, and I am building for the people I started out among.</p>
+    <div class="eyebrow rv"><span class="dot"></span><span class="lbl">Software Engineer Founder &nbsp;·&nbsp; Virginia, US</span></div>
+    <div class="hero-identity rv" style="transition-delay:.06s">
+      <img src="julio.jpg" alt="Julio M Cruz" class="portrait">
+      <h1>Julio M Cruz</h1>
+    </div>
+    <p class="tagline rv" style="transition-delay:.14s">29+ years shipping production systems.</p>
+    <p class="sub rv" style="transition-delay:.2s">Software engineer and founder. Six years for the U.S. Department of State with a Top Secret clearance. I started in Lima, Peru, and I am building for the people I started out among. Created PerkOS and zkNexus.</p>
     <div class="chips rv" style="transition-delay:.26s">
-      <a class="chip" href="https://perkos.xyz">perkos.xyz ↗</a>
       <a class="chip" href="https://github.com/JulioMCruz">github ↗</a>
       <a class="chip" href="https://x.com/JulioMCruz">x ↗</a>
       <a class="chip" href="https://www.linkedin.com/in/juliomcruz/">linkedin ↗</a>
-      <a class="chip b" href="https://stack.perkos.xyz/api/v2/x402/supported">x402 facilitator ↗</a>
+      <a class="chip" href="https://perkos.xyz">perkos.xyz ↗</a>
     </div>
   </div>
 </header>
@@ -167,7 +170,7 @@ footer a:hover{color:var(--signal)}
       <div class="node rv"><span class="yr">2008–2019 · Virginia</span><h3>Enterprise systems</h3><p>Six years on corporate infrastructure at JACER. Five as lead developer at Contensive, on e-commerce and mission-critical systems, owning requirements through post-production support.</p></div>
       <div class="node key rv"><span class="yr">2019–2025 · Washington DC</span><h3>Top Secret clearance</h3><p>Senior software engineer for the U.S. federal government. The Small Business Administration, then six years at the Department of State: C#, .NET, Azure, and identity work with OKTA, Azure AD and OAuth. Systems where a mistake is expensive.</p></div>
       <div class="node key rv"><span class="yr">2021 to now · Nights and weekends</span><h3>Onchain, in parallel</h3><p>One hundred and sixty five public repositories built alongside the clearance job. Solidity, TypeScript, payment rails. A blockchain credential from MIT Professional Education. Thirty hackathon awards along the way.</p></div>
-      <div class="node key rv"><span class="yr">September 2025</span><h3>Left to build PerkOS</h3><p>Full time on the thing all of it was pointing at.</p></div>
+      <div class="node key rv"><span class="yr">September 2025</span><h3>Left to build full time</h3><p>Founded PerkOS and zkNexus. Full time on the thing all of it was pointing at.</p></div>
     </div>
   </div>
 </section>
@@ -200,15 +203,15 @@ footer a:hover{color:var(--signal)}
   <div class="wrap">
     <div class="shead">
       <div class="lbl rv">Now</div>
-      <h2 class="rv">PerkOS. A small business hires a team the way it would hire people.</h2>
+      <h2 class="rv">Building companies. Shipping production systems.</h2>
     </div>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">Pick a team from industry templates, sign in with a wallet, and each teammate is provisioned in one click. A lead plans the work, the workers execute on a shared board, and nothing goes out until you approve it. <strong style="color:var(--paper);font-weight:500">They draft, you approve.</strong></p>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">The hard part was never the AI. An always-on agent container costs more per month than a small business will pay for the whole product, which is why the category keeps drifting upmarket. So I built hibernation: idle agents freeze, their state encrypted and stored, rebuilt on demand when work arrives. That is what makes a price a corner shop can actually pay.</p>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">I founded PerkOS to bring AI teams to small businesses at prices they can afford. I founded zkNexus. Both are active. The work is infrastructure, payments, and coordination at scale.</p>
+    <p class="rv" style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Most of what I build is open. One hundred sixty-five public repositories, three interoperable agent runtimes in production, and systems that run in government, enterprise, and onchain environments.</p>
     <div class="data rv">
-      <div class="hl"><b>~$0.02</b><span>Monthly cost of an idle teammate, down from about $30</span></div>
-      <div><b>93.5%</b><span>Provisioning success across 433 deployments</span></div>
-      <div><b>94</b><span>Repositories, built solo and unfunded</span></div>
-      <div><b>3</b><span>Interoperable agent runtimes in production</span></div>
+      <div class="hl"><b>165</b><span>Public repositories on GitHub</span></div>
+      <div><b>3</b><span>Agent runtimes in production</span></div>
+      <div><b>29+</b><span>Years writing software</span></div>
+      <div><b>6</b><span>Years with TS clearance at State</span></div>
     </div>
   </div>
 </section>
@@ -244,21 +247,19 @@ footer a:hover{color:var(--signal)}
       <h2 class="rv">Most of it is open. Read the thing rather than take my word for it.</h2>
     </div>
     <div class="links">
-      <a class="rv" href="https://perkos.xyz"><b>PerkOS</b><span>the product, live</span></a>
-      <a class="rv" href="https://github.com/PerkOS-xyz"><b>PerkOS on GitHub</b><span>94 repositories</span></a>
       <a class="rv" href="https://github.com/JulioMCruz"><b>GitHub</b><span>165 own repos · 0xJMC</span></a>
-      <a class="rv" href="https://stack.perkos.xyz/api/v2/x402/supported"><b>x402 facilitator</b><span>running on Base</span></a>
       <a class="rv" href="https://x.com/JulioMCruz"><b>X</b><span>@JulioMCruz</span></a>
       <a class="rv" href="https://www.linkedin.com/in/juliomcruz/"><b>LinkedIn</b><span>in/juliomcruz</span></a>
+      <a class="rv" href="https://perkos.xyz"><b>PerkOS</b><span>company I founded</span></a>
       <a class="rv" href="https://t.me/JulioMCruz"><b>Telegram</b><span>t.me/JulioMCruz</span></a>
-      <a class="rv" href="mailto:julio.cruz@perkos.xyz"><b>Email</b><span>julio.cruz@perkos.xyz</span></a>
+      <a class="rv" href="mailto:julio.cruz@eb-ms.net"><b>Email</b><span>julio.cruz@eb-ms.net</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    Julio M Cruz · Building <a href="https://perkos.xyz">PerkOS</a> · Virginia, US
+    Julio M Cruz · Software Engineer Founder · Virginia, US
   </div>
 </footer>
 
