@@ -22,6 +22,22 @@ Julio requested an identity pass on this date. Changes made:
 - **No em dashes**: Verified date ranges use en dashes (–)
 - **No invented facts**: All claims verified against existing canon
 
+## UX visual spec (2026-08-20)
+
+Design pass implementing visual spec for the header:
+
+- **Name**: 2–2.6rem editorial size, roman (not italic), --paper color, single line
+- **Header layout**: Portrait ~120–160px on left, identity text on right, aligned to cap-height
+- **Type order**: .lbl "Software Engineer · Founder", then name, then one sentence intro
+- **Intro sentence**: "29+ years shipping production systems. Founded PerkOS and zkNexus."
+- **Gold reserved**: --signal amber reserved for April 2020 event log only; removed hero glow-dot and gold italic name treatment
+- **Tighter padding**: Header padding reduced so first screen shows a person, not a poster title
+- **Footer**: Updated to "Software Engineer · Founder" format
+- **April 2020**: Preserved as event log with contrast (ink-2, mono log)
+- **No generated face**: Using julio.jpg (GitHub avatar)
+- **No em dashes**: En dashes for ranges
+- **Email**: julio.cruz@eb-ms.net
+
 ## Where things stand
 
 Everything on our side is done and verified. The only blocker is DNS propagation at the

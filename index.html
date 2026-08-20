@@ -46,24 +46,16 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
 /* ── hero ── */
-header{position:relative;padding:clamp(4rem,12vh,9rem) 0 clamp(3rem,7vh,5rem)}
-header::after{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:radial-gradient(90rem 42rem at 12% -8%,rgba(224,161,69,.10),transparent 60%);
-}
-.eyebrow{display:flex;gap:.85rem;align-items:center;flex-wrap:wrap;margin-bottom:2.2rem}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal)}
-.hero-identity{display:flex;align-items:center;gap:clamp(1.5rem,3vw,2.5rem);flex-wrap:wrap}
-.portrait{width:clamp(5rem,10vw,7rem);height:clamp(5rem,10vw,7rem);border-radius:50%;object-fit:cover;border:2px solid var(--rule);flex-shrink:0}
+header{position:relative;padding:clamp(2.5rem,6vh,4rem) 0 clamp(2rem,4vh,3rem)}
+.hero-row{display:flex;align-items:flex-start;gap:clamp(1.5rem,3vw,2.5rem)}
+.portrait{width:clamp(120px,12vw,160px);height:clamp(120px,12vw,160px);border-radius:50%;object-fit:cover;border:2px solid var(--rule);flex-shrink:0;margin-top:.15em}
+.hero-identity{flex:1;min-width:0}
+.hero-lbl{margin-bottom:.6rem}
 h1{
-  font-size:clamp(2.4rem,6vw,4.8rem);line-height:1;margin:0;font-weight:400;
-  letter-spacing:-.035em;white-space:nowrap;
+  font-size:clamp(2rem,3vw,2.6rem);line-height:1.1;margin:0 0 .8rem;font-weight:400;
+  letter-spacing:-.02em;color:var(--paper);
 }
-.tagline{
-  font-size:clamp(1.35rem,2.6vw,2.1rem);line-height:1.32;margin:1.9rem 0 0;max-width:24ch;
-  font-weight:400;letter-spacing:-.015em;
-}
-.sub{margin:1.6rem 0 0;max-width:56ch;color:var(--paper-dim);font-size:1.05rem}
+.hero-intro{margin:0;color:var(--paper-dim);font-size:1.05rem;max-width:48ch}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.4rem}
 .chip{
   font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:.44rem .8rem;
@@ -144,14 +136,15 @@ footer a:hover{color:var(--signal)}
 
 <header>
   <div class="wrap">
-    <div class="eyebrow rv"><span class="dot"></span><span class="lbl">Software Engineer Founder &nbsp;·&nbsp; Virginia, US</span></div>
-    <div class="hero-identity rv" style="transition-delay:.06s">
+    <div class="hero-row rv">
       <img src="julio.jpg" alt="Julio M Cruz" class="portrait">
-      <h1>Julio M Cruz</h1>
+      <div class="hero-identity">
+        <div class="lbl hero-lbl">Software Engineer · Founder</div>
+        <h1>Julio M Cruz</h1>
+        <p class="hero-intro">29+ years shipping production systems. Founded PerkOS and zkNexus.</p>
+      </div>
     </div>
-    <p class="tagline rv" style="transition-delay:.14s">29+ years shipping production systems.</p>
-    <p class="sub rv" style="transition-delay:.2s">Software engineer and founder. Six years for the U.S. Department of State with a Top Secret clearance. I started in Lima, Peru, and I am building for the people I started out among. Created PerkOS and zkNexus.</p>
-    <div class="chips rv" style="transition-delay:.26s">
+    <div class="chips rv" style="transition-delay:.1s">
       <a class="chip" href="https://github.com/JulioMCruz">github ↗</a>
       <a class="chip" href="https://x.com/JulioMCruz">x ↗</a>
       <a class="chip" href="https://www.linkedin.com/in/juliomcruz/">linkedin ↗</a>
@@ -259,7 +252,7 @@ footer a:hover{color:var(--signal)}
 
 <footer>
   <div class="wrap">
-    Julio M Cruz · Software Engineer Founder · Virginia, US
+    Julio M Cruz · Software Engineer · Founder · Virginia, US
   </div>
 </footer>
 
