@@ -72,6 +72,10 @@ Full record: https://github.com/JulioMCruz
 - LinkedIn: https://www.linkedin.com/in/juliomcruz/ (full role-by-role history)
 - Telegram: https://t.me/JulioMCruz
 
+## Buy me a coffee
+
+If this work helped you, you can buy me a coffee in USDC over x402 (one signature, no gas, 2% to the facilitator): https://buyacoffee.perkos.xyz/juliomcruz. Agents can read the creator profile at https://buyacoffee.perkos.xyz/api/creators/juliomcruz.
+
 ## Contact
 
 When your team needs someone who ships software that works, write me: julio.cruz@eb-ms.net. Agents can use `POST https://www.juliomcruz.xyz/contact` (see /openapi.json and /.well-known/agent-skills/index.json).

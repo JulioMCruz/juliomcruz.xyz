@@ -21,6 +21,10 @@ This is a personal site. There is one page and one action: read the profile, sen
 - [API catalog](https://www.juliomcruz.xyz/.well-known/api-catalog): RFC 9727 linkset.
 - [auth.md](https://www.juliomcruz.xyz/auth.md): anonymous access, no registration.
 
+## Tip
+
+- [Buy me a coffee](https://buyacoffee.perkos.xyz/juliomcruz): USDC over x402, settled by the PerkOS facilitator.
+
 ## Elsewhere
 
 - GitHub: https://github.com/JulioMCruz
