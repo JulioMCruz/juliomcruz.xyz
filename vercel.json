@@ -1,16 +1,71 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/contact",
-      "destination": "/api/contact"
+      "src": "/(.*)",
+      "headers": {
+        "X-Content-Type-Options": "nosniff"
+      },
+      "continue": true
     },
     {
-      "source": "/.well-known/api-catalog",
-      "destination": "/api/api-catalog"
+      "src": "/",
+      "headers": {
+        "Vary": "Accept",
+        "Link": "<https://www.juliomcruz.xyz/llms.txt>; rel=\"llms-txt\"; type=\"text/plain\", <https://www.juliomcruz.xyz/index.md>; rel=\"alternate\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/openapi.json>; rel=\"service-desc\"; type=\"application/json\", <https://www.juliomcruz.xyz/auth.md>; rel=\"service-doc\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/.well-known/api-catalog>; rel=\"api-catalog\", <https://www.juliomcruz.xyz/.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/json\", <https://www.juliomcruz.xyz/.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\", <https://www.juliomcruz.xyz/JulioMCruz-Resume.pdf>; rel=\"describedby\"; type=\"application/pdf\""
+      },
+      "continue": true
     },
     {
-      "source": "/",
+      "src": "/index\\.md",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept",
+        "x-markdown-tokens": "1129",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "continue": true
+    },
+    {
+      "src": "/auth\\.md",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "continue": true
+    },
+    {
+      "src": "/llms\\.txt",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      },
+      "continue": true
+    },
+    {
+      "src": "/openapi\\.json",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      },
+      "continue": true
+    },
+    {
+      "src": "/\\.well-known/(.*)\\.json",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "continue": true
+    },
+    {
+      "src": "/\\.well-known/agent-skills/(.*)/SKILL\\.md",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "continue": true
+    },
+    {
+      "src": "/",
       "has": [
         {
           "type": "header",
@@ -18,105 +73,18 @@
           "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/index.md"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        }
-      ]
+      "dest": "/api/markdown"
     },
     {
-      "source": "/",
-      "headers": [
-        {
-          "key": "Vary",
-          "value": "Accept"
-        },
-        {
-          "key": "Link",
-          "value": "<https://www.juliomcruz.xyz/llms.txt>; rel=\"llms-txt\"; type=\"text/plain\", <https://www.juliomcruz.xyz/index.md>; rel=\"alternate\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/openapi.json>; rel=\"service-desc\"; type=\"application/json\", <https://www.juliomcruz.xyz/auth.md>; rel=\"service-doc\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/.well-known/api-catalog>; rel=\"api-catalog\", <https://www.juliomcruz.xyz/.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/json\", <https://www.juliomcruz.xyz/.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\", <https://www.juliomcruz.xyz/JulioMCruz-Resume.pdf>; rel=\"describedby\"; type=\"application/pdf\""
-        }
-      ]
+      "src": "/contact",
+      "dest": "/api/contact"
     },
     {
-      "source": "/index.md",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        },
-        {
-          "key": "Vary",
-          "value": "Accept"
-        },
-        {
-          "key": "x-markdown-tokens",
-          "value": "1129"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
+      "src": "/\\.well-known/api-catalog",
+      "dest": "/api/api-catalog"
     },
     {
-      "source": "/(auth|llms).(md|txt)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    },
-    {
-      "source": "/auth.md",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        }
-      ]
-    },
-    {
-      "source": "/openapi.json",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    },
-    {
-      "source": "/.well-known/(.*).json",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json; charset=utf-8"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
-    },
-    {
-      "source": "/.well-known/agent-skills/(.*)/SKILL.md",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
+      "handle": "filesystem"
     }
   ]
 }
