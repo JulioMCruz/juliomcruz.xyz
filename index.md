@@ -74,7 +74,7 @@ Full record: https://github.com/JulioMCruz
 
 ## Buy me a coffee
 
-If this work helped you, you can buy me a coffee in USDC over x402 (one signature, no gas, 2% to the facilitator): https://buyacoffee.perkos.xyz/juliomcruz. Agents can read the creator profile at https://buyacoffee.perkos.xyz/api/creators/juliomcruz.
+If this work helped you, you can buy me a coffee in USDC over x402 (one signature, no gas, 2% to the facilitator): https://buyacoffee.perkos.xyz/pay?to=0xc2564e41b7f5cb66d2d99466450cfebce9e8228f&name=Julio%20M%20Cruz. Agents can read the creator profile at https://buyacoffee.perkos.xyz/api/creators/juliomcruz.
 
 ## Contact
 
