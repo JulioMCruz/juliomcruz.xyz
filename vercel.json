@@ -12,7 +12,7 @@
       "src": "/",
       "headers": {
         "Vary": "Accept",
-        "Link": "<https://www.juliomcruz.xyz/llms.txt>; rel=\"llms-txt\"; type=\"text/plain\", <https://www.juliomcruz.xyz/index.md>; rel=\"alternate\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/openapi.json>; rel=\"service-desc\"; type=\"application/json\", <https://www.juliomcruz.xyz/auth.md>; rel=\"service-doc\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/.well-known/api-catalog>; rel=\"api-catalog\", <https://www.juliomcruz.xyz/.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/json\", <https://www.juliomcruz.xyz/.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\", <https://www.juliomcruz.xyz/JulioMCruz-Resume.pdf>; rel=\"describedby\"; type=\"application/pdf\""
+        "Link": "<https://www.juliomcruz.xyz/llms.txt>; rel=\"llms-txt\"; type=\"text/plain\", <https://www.juliomcruz.xyz/index.md>; rel=\"alternate\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/openapi.json>; rel=\"service-desc\"; type=\"application/json\", <https://www.juliomcruz.xyz/auth.md>; rel=\"service-doc\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/.well-known/api-catalog>; rel=\"api-catalog\", <https://www.juliomcruz.xyz/.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/json\", <https://www.juliomcruz.xyz/.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\", <https://www.juliomcruz.xyz/JulioMCruz-Resume.pdf>; rel=\"describedby\"; type=\"application/pdf\", <https://www.juliomcruz.xyz/.well-known/agent-card.json>; rel=\"agent-card\"; type=\"application/json\", <https://www.juliomcruz.xyz/.well-known/mcp/server-card.json>; rel=\"mcp-server-card\"; type=\"application/json\""
       },
       "continue": true
     },
@@ -74,6 +74,10 @@
         }
       ],
       "dest": "/api/markdown"
+    },
+    {
+      "src": "/mcp",
+      "dest": "/api/mcp"
     },
     {
       "src": "/contact",

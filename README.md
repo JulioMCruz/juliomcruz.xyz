@@ -60,9 +60,18 @@ The site is one page and one action, and it says so to agents:
 | auth.md | `/auth.md` | anonymous, no registration |
 | Agent Skills | `/.well-known/agent-skills/index.json` | `read-profile`, `contact-julio`; digests are `sha256:` of each SKILL.md, recompute when a skill changes |
 | ARD manifest | `/.well-known/ai-catalog.json` | the two skills and the API |
+| MCP server | `/.well-known/mcp/server-card.json` → `POST /mcp` | Streamable HTTP, JSON-RPC by hand in `api/mcp.ts`; tools `read_profile`, `send_message` |
+| A2A agent | `/.well-known/agent-card.json` → `POST /api/a2a` | `message/send` answers from `index.md` through the PerkOS LLM gateway (`PERKOS_LLM_BASE_URL`, `PERKOS_LLM_API_KEY`, `PERKOS_LLM_MODEL` in Vercel env; agent id `juliomcruz-site` on the gateway) |
 | WebMCP | inline script in `index.html` | `read_profile`, `send_message` via `navigator.modelContext.registerTool` |
 
-Not published on purpose: OAuth metadata, MCP server card, A2A agent card, DNS-AID. There is no server behind them and a document that advertises what does not exist misleads the caller.
+Not published on purpose: OAuth metadata and DNS-AID (DNS-AID needs an SVCB record in Route 53, see below). There is no server behind them and a document that advertises what does not exist misleads the caller.
+
+DNS-AID, once the A2A agent is live (run with Route 53 access):
+
+```bash
+ZONE=$(aws route53 list-hosted-zones-by-name --dns-name juliomcruz.xyz --query "HostedZones[0].Id" --output text)
+aws route53 change-resource-record-sets --hosted-zone-id "$ZONE" --change-batch '{"Changes":[{"Action":"UPSERT","ResourceRecordSet":{"Name":"_a2a._agents.juliomcruz.xyz","Type":"SVCB","TTL":3600,"ResourceRecords":[{"Value":"1 www.juliomcruz.xyz. alpn=\"a2a\" port=443"}]}}]}'
+```
 
 Validate: `curl -s -X POST https://isitagentready.com/api/scan -H 'Content-Type: application/json' -d '{"url":"https://juliomcruz.xyz"}'`.
 

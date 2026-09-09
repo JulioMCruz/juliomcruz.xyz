@@ -1,0 +1,15 @@
+{
+  "serverInfo": { "name": "juliomcruz.xyz", "version": "1.0.0", "title": "Julio M Cruz's site" },
+  "description": "Read Julio M Cruz's public professional profile and send him a message. Two tools, no authentication.",
+  "protocolVersion": "2025-06-18",
+  "transport": { "type": "streamable-http", "endpoint": "https://www.juliomcruz.xyz/mcp" },
+  "endpoint": "https://www.juliomcruz.xyz/mcp",
+  "capabilities": { "tools": { "listChanged": false } },
+  "tools": [
+    { "name": "read_profile", "description": "Read Julio M Cruz's public professional profile as Markdown." },
+    { "name": "send_message", "description": "Send Julio M Cruz a message by email on behalf of a person (name, email, message)." }
+  ],
+  "authentication": { "type": "none" },
+  "documentationUrl": "https://www.juliomcruz.xyz/llms.txt",
+  "provider": { "name": "Julio M Cruz", "url": "https://www.juliomcruz.xyz" }
+}
