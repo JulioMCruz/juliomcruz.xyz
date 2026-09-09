@@ -1,0 +1,37 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Julio M Cruz profile agent",
+  "description": "Answers questions about Julio M Cruz, senior software engineer (25 years, U.S. federal Top Secret work, enterprise, AI-agent infrastructure), using only his published profile. Can explain how to contact him.",
+  "url": "https://www.juliomcruz.xyz/api/a2a",
+  "preferredTransport": "JSONRPC",
+  "supportedInterfaces": [{ "transport": "JSONRPC", "url": "https://www.juliomcruz.xyz/api/a2a" }],
+  "version": "1.0.0",
+  "provider": { "organization": "Julio M Cruz", "url": "https://www.juliomcruz.xyz" },
+  "documentationUrl": "https://www.juliomcruz.xyz/llms.txt",
+  "iconUrl": "https://www.juliomcruz.xyz/julio-320.jpg",
+  "capabilities": { "streaming": false, "pushNotifications": false, "stateTransitionHistory": false },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/plain"],
+  "securitySchemes": {},
+  "security": [],
+  "skills": [
+    {
+      "id": "about-julio",
+      "name": "About Julio M Cruz",
+      "description": "Answer questions about Julio's experience, stack, clearance, hackathon record and current work, from the published profile only.",
+      "tags": ["profile", "resume", "software-engineer", "hiring"],
+      "examples": ["What has Julio built with AI agents?", "Does Julio have federal clearance experience?", "Which languages and clouds does Julio work with?"],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    },
+    {
+      "id": "contact-julio",
+      "name": "How to contact Julio",
+      "description": "Explains how to reach Julio: email, or POST /contact with name, email and message (see the contact-julio skill).",
+      "tags": ["contact", "email"],
+      "examples": ["How do I get in touch with Julio about a role?"],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    }
+  ]
+}

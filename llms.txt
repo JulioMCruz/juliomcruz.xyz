@@ -9,6 +9,11 @@ This is a personal site. There is one page and one action: read the profile, sen
 - [Profile in Markdown](https://www.juliomcruz.xyz/index.md): the whole page, same facts as the HTML.
 - [Resume (PDF)](https://www.juliomcruz.xyz/JulioMCruz-Resume.pdf): one page, current.
 
+## Ask
+
+- [A2A agent card](https://www.juliomcruz.xyz/.well-known/agent-card.json): a profile agent that answers questions about Julio from the published profile. JSON-RPC `message/send` at `https://www.juliomcruz.xyz/api/a2a`, no authentication.
+- [MCP server card](https://www.juliomcruz.xyz/.well-known/mcp/server-card.json): Streamable HTTP at `https://www.juliomcruz.xyz/mcp` with two tools, `read_profile` and `send_message`.
+
 ## Act
 
 - [OpenAPI](https://www.juliomcruz.xyz/openapi.json): `POST /contact` sends Julio an email. No authentication, one message per request.
