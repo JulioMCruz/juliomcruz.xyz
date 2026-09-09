@@ -45,6 +45,27 @@ In Vercel Dashboard → Project → Settings → Domains, add `juliomcruz.xyz`.
 
 See [DNS.md](DNS.md) for Route 53 setup. Point the apex and www to Vercel.
 
+## Agent readiness (isitagentready.com)
+
+The site is one page and one action, and it says so to agents:
+
+| Surface | Path | Notes |
+|---|---|---|
+| Markdown for agents | `GET /` with `Accept: text/markdown` → `/index.md` | Vercel `rewrites` with a header condition; `Vary: Accept`, `x-markdown-tokens` |
+| llms.txt | `/llms.txt` | what to read, what to call |
+| Link headers | on `/` | llms-txt, alternate (markdown), service-desc, service-doc, api-catalog, ai-catalog, agent-skills, describedby (resume) |
+| Content Signals + AI bot rules | `/robots.txt` | `search=yes, ai-input=yes, ai-train=no`; `Agentmap` |
+| API catalog (RFC 9727) | `/.well-known/api-catalog` | `application/linkset+json`; points at `/openapi.json`, `/llms.txt`, `/auth.md`, `/api/health` |
+| OpenAPI | `/openapi.json` | `POST /contact`, `GET /api/health`, `GET /index.md` |
+| auth.md | `/auth.md` | anonymous, no registration |
+| Agent Skills | `/.well-known/agent-skills/index.json` | `read-profile`, `contact-julio`; digests are `sha256:` of each SKILL.md, recompute when a skill changes |
+| ARD manifest | `/.well-known/ai-catalog.json` | the two skills and the API |
+| WebMCP | inline script in `index.html` | `read_profile`, `send_message` via `navigator.modelContext.registerTool` |
+
+Not published on purpose: OAuth metadata, MCP server card, A2A agent card, DNS-AID. There is no server behind them and a document that advertises what does not exist misleads the caller.
+
+Validate: `curl -s -X POST https://isitagentready.com/api/scan -H 'Content-Type: application/json' -d '{"url":"https://juliomcruz.xyz"}'`.
+
 ## Keeping it true
 
 `JulioMCruz-Resume.pdf` is the generic one-page resume; regenerate it from the resume source and copy it here when the resume changes.

@@ -1,0 +1,42 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Julio M Cruz",
+    "identifier": "did:web:www.juliomcruz.xyz"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:www.juliomcruz.xyz:skill:read-profile",
+      "displayName": "Read Julio M Cruz's profile",
+      "type": "text/markdown",
+      "url": "https://www.juliomcruz.xyz/.well-known/agent-skills/read-profile/SKILL.md",
+      "representativeQueries": [
+        "who is Julio M Cruz",
+        "what has Julio Cruz built",
+        "is Julio Cruz a fit for a senior software engineer role",
+        "Julio Cruz resume"
+      ]
+    },
+    {
+      "identifier": "urn:air:www.juliomcruz.xyz:skill:contact-julio",
+      "displayName": "Contact Julio M Cruz",
+      "type": "text/markdown",
+      "url": "https://www.juliomcruz.xyz/.well-known/agent-skills/contact-julio/SKILL.md",
+      "representativeQueries": [
+        "send a message to Julio Cruz",
+        "contact Julio M Cruz about a role",
+        "email Julio Cruz"
+      ]
+    },
+    {
+      "identifier": "urn:air:www.juliomcruz.xyz:api:site",
+      "displayName": "juliomcruz.xyz API (contact, health, profile)",
+      "type": "application/vnd.oai.openapi+json",
+      "url": "https://www.juliomcruz.xyz/openapi.json",
+      "representativeQueries": [
+        "how do I send Julio Cruz a message programmatically",
+        "juliomcruz.xyz API"
+      ]
+    }
+  ]
+}

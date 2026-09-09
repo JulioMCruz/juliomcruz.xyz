@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "read-profile",
+      "type": "skill-md",
+      "description": "Read Julio M Cruz's public professional profile (career, skills, record) as Markdown.",
+      "url": "https://www.juliomcruz.xyz/.well-known/agent-skills/read-profile/SKILL.md",
+      "digest": "sha256:037077d675cd395a51c653e3475cabb9630f691a589d1362bf153daff7aff23c"
+    },
+    {
+      "name": "contact-julio",
+      "type": "skill-md",
+      "description": "Send Julio M Cruz a message by email through the site's contact endpoint, on behalf of a person.",
+      "url": "https://www.juliomcruz.xyz/.well-known/agent-skills/contact-julio/SKILL.md",
+      "digest": "sha256:d15c71cc68e25b2695a9802a484a6c05cde068140c61bb88acf65c3fff51a506"
+    }
+  ]
+}

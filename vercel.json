@@ -1,13 +1,69 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/contact", "destination": "/api/contact" }
+    { "source": "/contact", "destination": "/api/contact" },
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "destination": "/index.md"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Vary", "value": "Accept" },
+        { "key": "Link", "value": "<https://www.juliomcruz.xyz/llms.txt>; rel=\"llms-txt\"; type=\"text/plain\", <https://www.juliomcruz.xyz/index.md>; rel=\"alternate\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/openapi.json>; rel=\"service-desc\"; type=\"application/json\", <https://www.juliomcruz.xyz/auth.md>; rel=\"service-doc\"; type=\"text/markdown\", <https://www.juliomcruz.xyz/.well-known/api-catalog>; rel=\"api-catalog\", <https://www.juliomcruz.xyz/.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/json\", <https://www.juliomcruz.xyz/.well-known/agent-skills/index.json>; rel=\"agent-skills\"; type=\"application/json\", <https://www.juliomcruz.xyz/JulioMCruz-Resume.pdf>; rel=\"describedby\"; type=\"application/pdf\"" }
+      ]
+    },
+    {
+      "source": "/index.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Vary", "value": "Accept" },
+        { "key": "x-markdown-tokens", "value": "1129" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/(auth|llms).(md|txt)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/auth.md",
+      "headers": [ { "key": "Content-Type", "value": "text/markdown; charset=utf-8" } ]
+    },
+    {
+      "source": "/openapi.json",
+      "headers": [ { "key": "Access-Control-Allow-Origin", "value": "*" } ]
+    },
+    {
+      "source": "/.well-known/api-catalog",
+      "headers": [
+        { "key": "Content-Type", "value": "application/linkset+json" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/.well-known/(.*).json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/.well-known/agent-skills/(.*)/SKILL.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
   ]

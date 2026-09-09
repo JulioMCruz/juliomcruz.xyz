@@ -1,0 +1,17 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.juliomcruz.xyz",
+      "service-desc": [
+        { "href": "https://www.juliomcruz.xyz/openapi.json", "type": "application/json" }
+      ],
+      "service-doc": [
+        { "href": "https://www.juliomcruz.xyz/llms.txt", "type": "text/plain" },
+        { "href": "https://www.juliomcruz.xyz/auth.md", "type": "text/markdown" }
+      ],
+      "status": [
+        { "href": "https://www.juliomcruz.xyz/api/health" }
+      ]
+    }
+  ]
+}
