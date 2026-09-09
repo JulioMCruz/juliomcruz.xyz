@@ -1,0 +1,56 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "juliomcruz.xyz",
+    "version": "1.0.0",
+    "summary": "Personal site of Julio M Cruz: read the profile, send a message.",
+    "contact": { "name": "Julio M Cruz", "email": "julio.cruz@eb-ms.net", "url": "https://www.juliomcruz.xyz" }
+  },
+  "servers": [{ "url": "https://www.juliomcruz.xyz" }],
+  "paths": {
+    "/contact": {
+      "post": {
+        "operationId": "sendMessage",
+        "summary": "Send Julio a message by email",
+        "description": "Sends one email to Julio with the sender's name, email and message. No authentication. The optional `website` field is a honeypot and must be empty or omitted.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "email", "message"],
+                "properties": {
+                  "name": { "type": "string", "maxLength": 5000 },
+                  "email": { "type": "string", "format": "email" },
+                  "message": { "type": "string", "maxLength": 5000 },
+                  "website": { "type": "string", "description": "Honeypot. Leave empty." }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Message sent", "content": { "application/json": { "schema": { "type": "object", "properties": { "ok": { "type": "boolean" } } } } } },
+          "400": { "description": "Validation error", "content": { "application/json": { "schema": { "type": "object", "properties": { "error": { "type": "string" } } } } } },
+          "405": { "description": "Method not allowed" },
+          "500": { "description": "Delivery failed" }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "operationId": "health",
+        "summary": "Liveness check",
+        "responses": { "200": { "description": "OK", "content": { "application/json": { "schema": { "type": "object", "properties": { "ok": { "type": "boolean" }, "time": { "type": "string", "format": "date-time" } } } } } } }
+      }
+    },
+    "/index.md": {
+      "get": {
+        "operationId": "getProfile",
+        "summary": "Profile in Markdown",
+        "responses": { "200": { "description": "Markdown", "content": { "text/markdown": { "schema": { "type": "string" } } } } }
+      }
+    }
+  }
+}

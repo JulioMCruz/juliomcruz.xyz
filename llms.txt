@@ -1,0 +1,23 @@
+# Julio M Cruz
+
+> Senior software engineer, 25 years of production systems: six under a Top Secret clearance at the U.S. Small Business Administration and Department of State, enterprise before that, and AI-agent infrastructure today (founder of PerkOS). Virginia, US.
+
+This is a personal site. There is one page and one action: read the profile, send a message.
+
+## Read
+
+- [Profile in Markdown](https://www.juliomcruz.xyz/index.md): the whole page, same facts as the HTML.
+- [Resume (PDF)](https://www.juliomcruz.xyz/JulioMCruz-Resume.pdf): one page, current.
+
+## Act
+
+- [OpenAPI](https://www.juliomcruz.xyz/openapi.json): `POST /contact` sends Julio an email. No authentication, one message per request.
+- [Agent skills](https://www.juliomcruz.xyz/.well-known/agent-skills/index.json): `read-profile` and `contact-julio`, each a SKILL.md with a digest.
+- [API catalog](https://www.juliomcruz.xyz/.well-known/api-catalog): RFC 9727 linkset.
+- [auth.md](https://www.juliomcruz.xyz/auth.md): anonymous access, no registration.
+
+## Elsewhere
+
+- GitHub: https://github.com/JulioMCruz
+- LinkedIn: https://www.linkedin.com/in/juliomcruz/
+- PerkOS: https://perkos.xyz

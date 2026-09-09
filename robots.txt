@@ -1,4 +1,36 @@
+# juliomcruz.xyz. One page, one action. Everything here is meant to be read.
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
 User-agent: *
 Allow: /
+Allow: /.well-known/
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+Agentmap: https://www.juliomcruz.xyz/.well-known/ai-catalog.json
 Sitemap: https://www.juliomcruz.xyz/sitemap.xml

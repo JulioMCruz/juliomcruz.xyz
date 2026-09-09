@@ -18,6 +18,11 @@
 <meta name="twitter:title" content="Julio M Cruz · Senior Software Engineer">
 <meta name="twitter:description" content="25+ years shipping production systems. Six of them under a Top Secret clearance at SBA and State. Founded PerkOS. 165 own public repositories on GitHub.">
 <meta name="twitter:image" content="https://www.juliomcruz.xyz/julio.jpg">
+<link rel="alternate" type="text/markdown" href="https://www.juliomcruz.xyz/index.md" title="Profile in Markdown">
+<link rel="ai-catalog" type="application/json" href="https://www.juliomcruz.xyz/.well-known/ai-catalog.json">
+<link rel="api-catalog" href="https://www.juliomcruz.xyz/.well-known/api-catalog">
+<link rel="llms-txt" type="text/plain" href="https://www.juliomcruz.xyz/llms.txt">
+<link rel="service-desc" type="application/json" href="https://www.juliomcruz.xyz/openapi.json">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -547,6 +552,31 @@ footer{padding:4rem 0 5rem;border-top:1px solid var(--rule);color:var(--paper-fa
     }catch(err){msg.textContent='Network error. Please try again.';msg.className='msg err';}
     btn.disabled=false;btn.textContent='Send message';
   });
+})();
+</script>
+<script>
+/* WebMCP: expose the page's two real actions to agents running in the browser. */
+(function(){
+  const mc=navigator.modelContext;
+  if(!mc||typeof mc.registerTool!=='function')return;
+  const ac=new AbortController();
+  mc.registerTool({
+    name:'read_profile',
+    description:"Read Julio M Cruz's public professional profile as Markdown: summary, career arc, stack, hackathon record, links.",
+    inputSchema:{type:'object',properties:{},additionalProperties:false},
+    async execute(){const r=await fetch('/index.md',{headers:{Accept:'text/markdown'}});return {content:[{type:'text',text:await r.text()}]};}
+  },{signal:ac.signal});
+  mc.registerTool({
+    name:'send_message',
+    description:'Send Julio M Cruz a message by email on behalf of the person using this browser. Ask the person for name, email and message first; never invent them.',
+    inputSchema:{type:'object',required:['name','email','message'],properties:{name:{type:'string',maxLength:5000},email:{type:'string',format:'email'},message:{type:'string',maxLength:5000}},additionalProperties:false},
+    async execute({name,email,message}){
+      const r=await fetch('/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,message})});
+      const j=await r.json().catch(()=>({}));
+      return {content:[{type:'text',text:r.ok?'Message sent. Julio will reply to '+email+'.':('Failed: '+(j.error||r.status))}]};
+    }
+  },{signal:ac.signal});
+  addEventListener('pagehide',()=>ac.abort(),{once:true});
 })();
 </script>
 </body>
