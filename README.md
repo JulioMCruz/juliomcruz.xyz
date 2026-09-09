@@ -20,7 +20,7 @@ which rewrites to `api/contact.ts`, a serverless function that sends email via R
 ### 1. Deploy to Vercel
 
 Link this repository to a Vercel project. Vercel will:
-- Serve the static files (`index.html`, `julio.jpg`, `robots.txt`, `sitemap.xml`)
+- Serve the static files (`index.html`, `julio.jpg` for og:image, `julio-320.jpg` for the page, `JulioMCruz-Resume.pdf`, `robots.txt`, `sitemap.xml`)
 - Deploy the `api/contact.ts` function
 - Apply the rewrite from `/contact` to `/api/contact` (configured in `vercel.json`)
 
@@ -46,6 +46,8 @@ In Vercel Dashboard → Project → Settings → Domains, add `juliomcruz.xyz`.
 See [DNS.md](DNS.md) for Route 53 setup. Point the apex and www to Vercel.
 
 ## Keeping it true
+
+`JulioMCruz-Resume.pdf` is the generic one-page resume; regenerate it from the resume source and copy it here when the resume changes.
 
 Years of experience on this site is **25+** (career table starts January 2001), the same figure as the resume. Keep the two in sync.
 
