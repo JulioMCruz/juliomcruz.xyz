@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Julio M Cruz — Software Engineer · Founder</title>
-<meta name="description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Federal TS clearance at SBA then State. 165 public repositories on GitHub.">
+<title>Julio M Cruz · Senior Software Engineer</title>
+<meta name="description" content="25+ years shipping production systems. Six of them under a Top Secret clearance at SBA and State. Founded PerkOS. 165 own public repositories on GitHub.">
 <link rel="canonical" href="https://www.juliomcruz.xyz/">
-<meta property="og:title" content="Julio M Cruz — Software Engineer · Founder">
-<meta property="og:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Federal TS clearance at SBA then State. 165 public repositories on GitHub.">
+<meta property="og:title" content="Julio M Cruz · Senior Software Engineer">
+<meta property="og:description" content="25+ years shipping production systems. Six of them under a Top Secret clearance at SBA and State. Founded PerkOS. 165 own public repositories on GitHub.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://www.juliomcruz.xyz/">
 <meta property="og:image" content="https://www.juliomcruz.xyz/julio.jpg">
@@ -15,8 +15,8 @@
 <meta property="og:site_name" content="Julio M Cruz">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@JulioMCruz">
-<meta name="twitter:title" content="Julio M Cruz — Software Engineer · Founder">
-<meta name="twitter:description" content="29+ years shipping production systems. Founded PerkOS and zkNexus. Federal TS clearance at SBA then State. 165 public repositories on GitHub.">
+<meta name="twitter:title" content="Julio M Cruz · Senior Software Engineer">
+<meta name="twitter:description" content="25+ years shipping production systems. Six of them under a Top Secret clearance at SBA and State. Founded PerkOS. 165 own public repositories on GitHub.">
 <meta name="twitter:image" content="https://www.juliomcruz.xyz/julio.jpg">
 <script type="application/ld+json">
 {
@@ -25,7 +25,7 @@
   "name": "Julio M Cruz",
   "url": "https://www.juliomcruz.xyz/",
   "image": "https://www.juliomcruz.xyz/julio.jpg",
-  "jobTitle": "Software Engineer · Founder",
+  "jobTitle": "Senior Software Engineer",
   "sameAs": [
     "https://github.com/JulioMCruz",
     "https://x.com/JulioMCruz",
@@ -36,177 +36,128 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0c0f13; --ink-2:#12161c; --rule:#232a33;
-  --paper:#e9e4d9; --paper-dim:#9aa3ad; --paper-faint:#5f6a76;
-  --signal:#e0a145; --signal-dim:#8a6428;
-  --base:#4d84ff;
-  --serif:"Newsreader",Georgia,serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --paper:#fcfbf9; --paper-2:#f4f2ee;
+  --ink:#1b1f24; --ink-2:#5c6370; --rule:#d9dce1;
+  --accent:#2b4c7e; --accent-ink:#1f3a63;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Source Sans 3",system-ui,-apple-system,sans-serif;
   --gut:clamp(1.25rem,5vw,4rem);
-  --ease:cubic-bezier(.16,1,.3,1);
-  --ease-hover:cubic-bezier(.4,0,.2,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--ink);color:var(--paper);
-  font-family:var(--serif);font-size:clamp(1.02rem,.55vw + .9rem,1.2rem);
-  line-height:1.62;font-weight:300;-webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:clamp(1rem,.4vw + .92rem,1.1rem);
+  line-height:1.55;font-weight:400;overflow-x:hidden;
 }
-/* grain */
-body::before{
-  content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-.wrap{max-width:74rem;margin:0 auto;padding:0 var(--gut)}
-a{color:inherit}
-.lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-faint);font-weight:500}
+.wrap{max-width:68rem;margin:0 auto;padding:0 var(--gut)}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-ink);text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lbl{font-family:var(--sans);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
 .rule{height:1px;background:var(--rule);border:0;margin:0}
+.lead{max-width:62ch;color:var(--ink-2)}
+.serif{font-family:var(--serif)}
 
-/* ── reveal ── */
-.rv{opacity:0;transform:translateY(24px);transition:opacity 600ms var(--ease),transform 600ms var(--ease);will-change:opacity,transform}
-.rv.in{opacity:1;transform:translateY(0)}
-/* hero stagger: name → role → lead → chips, 70ms intervals */
-.hero-identity h1.rv{transition-delay:0s}
-.hero-lbl.rv{transition-delay:70ms}
-.hero-intro.rv{transition-delay:140ms}
-.chips.rv{transition-delay:210ms}
-.portrait.rv{transition-delay:0s}
-
-/* ── hero ── */
-header{position:relative;padding:clamp(2.5rem,6vh,4rem) 0 clamp(2rem,4vh,3rem)}
-.hero-row{display:flex;align-items:flex-start;gap:clamp(1.5rem,3vw,2.5rem)}
-.portrait{width:clamp(120px,12vw,160px);height:clamp(120px,12vw,160px);border-radius:50%;object-fit:cover;border:2px solid var(--rule);flex-shrink:0;margin-top:.15em}
+/* hero */
+header{padding:clamp(2.5rem,6vh,4rem) 0 clamp(1.75rem,4vh,2.5rem);border-bottom:1.5px solid var(--ink)}
+.hero-row{display:flex;align-items:flex-start;gap:clamp(1.25rem,3vw,2rem)}
+.portrait{width:96px;height:96px;border-radius:4px;object-fit:cover;border:1px solid var(--rule);flex-shrink:0;margin-top:.35rem}
 .hero-identity{flex:1;min-width:0}
-.hero-lbl{margin-bottom:.6rem}
-h1{
-  font-size:clamp(2rem,3vw,2.6rem);line-height:1.1;margin:0 0 .8rem;font-weight:400;
-  letter-spacing:-.02em;color:var(--paper);
+.hero-lbl{margin-bottom:.5rem}
+h1{font-family:var(--serif);font-size:clamp(2.1rem,3.4vw,2.7rem);line-height:1.05;margin:0 0 .7rem;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+.hero-intro{margin:0;font-family:var(--serif);font-size:clamp(1.08rem,1.4vw,1.2rem);line-height:1.5;max-width:54ch;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;margin-top:1.4rem;font-weight:600;font-size:.92rem}
+.chips a.primary{padding:.4rem .9rem;border:1.5px solid var(--accent);border-radius:3px}
+.chips a.primary:hover{background:var(--accent);color:#fff;text-decoration:none}
+@media(max-width:480px){
+  .hero-row{flex-direction:column;gap:1rem}
+  .portrait{width:72px;height:72px}
 }
-.hero-intro{margin:0;color:var(--paper-dim);font-size:1.05rem;max-width:48ch}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.4rem}
-.chip{
-  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:.44rem .8rem;
-  border:1px solid var(--rule);border-radius:2px;color:var(--paper-dim);text-decoration:none;
-  transition:border-color 150ms var(--ease-hover),color 150ms var(--ease-hover),box-shadow 200ms ease-out,transform 150ms var(--ease-hover);
-}
-.chip:hover{border-color:var(--signal);color:var(--signal);box-shadow:0 0 0 1px var(--signal-dim);transform:translateX(2px)}
-.chip.b:hover{border-color:var(--base);color:var(--base);box-shadow:0 0 0 1px rgba(77,132,255,.3)}
 
-/* ── section frame ── */
-section{padding:clamp(4rem,10vh,7.5rem) 0}
-.shead{display:grid;grid-template-columns:minmax(0,10rem) 1fr;gap:clamp(1rem,4vw,3rem);align-items:baseline;margin-bottom:3rem}
-@media(max-width:720px){.shead{grid-template-columns:1fr;gap:.7rem}}
-h2{font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;margin:0;font-weight:400;letter-spacing:-.025em;max-width:20ch}
+/* section frame */
+section{padding:clamp(2.75rem,7vh,4.5rem) 0}
+.shead{display:grid;grid-template-columns:minmax(0,9rem) 1fr;gap:clamp(1rem,4vw,3rem);align-items:baseline;margin-bottom:1.8rem}
+@media(max-width:720px){.shead{grid-template-columns:1fr;gap:.5rem}}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.15;margin:0;font-weight:600;letter-spacing:-.01em;max-width:24ch}
+h3{font-family:var(--serif);font-weight:600}
 
-/* ── timeline ── */
-.tl{display:grid;grid-template-columns:minmax(0,10rem) 1fr;gap:clamp(1rem,4vw,3rem)}
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1rem 2rem;margin-top:2rem;padding-top:1.1rem;border-top:1.5px solid var(--ink)}
+.stats b{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,1.9rem);font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-right:.45rem}
+.stats span{font-size:.9rem;color:var(--ink-2)}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:minmax(0,9rem) 1fr;gap:clamp(1rem,4vw,3rem)}
 @media(max-width:720px){.tl{grid-template-columns:1fr}}
-.tl-body{padding-left:clamp(1.4rem,3vw,2.6rem);position:relative}
-.tl-body::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--rule);transform:scaleY(0);transform-origin:top;transition:transform 600ms var(--ease)}
-.tl-body.in::before{transform:scaleY(1)}
-.node{position:relative;padding-bottom:3.2rem}
+.tl-body{padding-left:clamp(1.2rem,3vw,2rem);position:relative;border-left:1px solid var(--rule)}
+.node{position:relative;padding-bottom:2rem}
 .node:last-child{padding-bottom:0}
-.node::before{
-  content:"";position:absolute;left:calc(-1 * clamp(1.4rem,3vw,2.6rem) - 4px);top:.62em;
-  width:7px;height:7px;border-radius:50%;background:var(--ink);border:1px solid var(--paper-faint);
-}
-.node.key::before{background:var(--signal);border-color:var(--signal);box-shadow:0 0 14px rgba(224,161,69,.55)}
-.node .yr{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--signal);display:block;margin-bottom:.35rem}
-.node h3{margin:0 0 .5rem;font-size:1.28rem;font-weight:500;letter-spacing:-.01em}
-.node p{margin:0;color:var(--paper-dim);max-width:60ch}
+.node::before{content:"";position:absolute;left:calc(-1 * clamp(1.2rem,3vw,2rem) - 4px);top:.55em;width:7px;height:7px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink-2)}
+.node.key::before{background:var(--accent);border-color:var(--accent)}
+.node .yr{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;display:block;margin-bottom:.3rem}
+.node h3{margin:0 0 .35rem;font-size:1.2rem;letter-spacing:-.005em}
+.node p{margin:0;color:var(--ink-2);max-width:60ch}
+.node.minor h3{font-family:var(--sans);font-size:1rem}
 
-/* ── the incident ── */
-.incident{background:var(--ink-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.log{
-  font-family:var(--mono);font-size:clamp(.78rem,1.4vw,.9rem);line-height:2.05;
-  border-left:2px solid var(--signal-dim);padding-left:clamp(1rem,2.5vw,1.8rem);margin:2.5rem 0 0;
-}
-.log div{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;color:var(--paper-dim)}
-@media(max-width:620px){.log div{grid-template-columns:1fr;gap:0;line-height:1.7;margin-bottom:.8rem}}
-.log time{color:var(--paper-faint)}
-.log .hit{color:var(--signal);font-weight:500}
-.log .out{color:var(--paper)}
-.pull{
-  font-size:clamp(1.3rem,2.7vw,1.85rem);line-height:1.42;margin:3.2rem 0 0;max-width:34ch;
-  font-style:italic;font-weight:300;color:var(--paper);
-}
-.src{margin-top:1.6rem;font-family:var(--mono);font-size:.7rem;color:var(--paper-faint);letter-spacing:.04em}
+/* the incident */
+.incident{background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.log{font-size:.92rem;line-height:1.9;border-left:2px solid var(--accent);padding-left:clamp(1rem,2.5vw,1.6rem);margin:1.8rem 0 0;max-width:62ch}
+.log div{display:grid;grid-template-columns:4.5rem 1fr;gap:1rem;color:var(--ink-2)}
+@media(max-width:620px){.log div{grid-template-columns:1fr;gap:0;line-height:1.6;margin-bottom:.7rem}}
+.log time{color:var(--ink-2);font-weight:600;letter-spacing:.03em}
+.log .hit,.log .out{color:var(--ink);font-weight:600}
+.src{margin-top:1.4rem;font-size:.8rem;color:var(--ink-2);max-width:62ch}
 
-/* ── data grid ── */
-.data{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
-.data div{padding:1.7rem 1.4rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.data b{display:block;font-family:var(--mono);font-size:clamp(1.5rem,3.4vw,2.15rem);font-weight:500;color:var(--paper);letter-spacing:-.02em}
-.data span{display:block;margin-top:.45rem;font-size:.85rem;color:var(--paper-faint);line-height:1.45}
-.data .hl b{color:var(--signal)}
+/* awards */
+.wins{display:grid;gap:0;border-top:1px solid var(--rule);margin-top:1.6rem}
+.win{padding:.8rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:5.5rem 1fr auto;gap:1rem;align-items:baseline}
+@media(max-width:720px){.win{grid-template-columns:1fr;gap:.15rem}}
+.win time{font-size:.8rem;color:var(--ink-2);letter-spacing:.03em}
+.win strong{font-weight:600;font-size:1rem}
+.win strong span{color:var(--ink-2);font-weight:400}
+.win .res{font-size:.85rem;color:var(--ink-2)}
+.win .res b{color:var(--ink);font-weight:600}
+details summary{cursor:pointer;color:var(--accent);font-weight:600;padding:.9rem 0;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+ ";}
+details[open] summary::before{content:"– ";}
 
-/* ── awards ── */
-.wins{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.4rem}
-.win{background:var(--ink);padding:1.35rem 1.5rem;display:grid;grid-template-columns:7.5rem 1fr auto;gap:1.2rem;align-items:baseline;transition:border-color 200ms ease-out,box-shadow 200ms ease-out,background 150ms var(--ease-hover)}
-.win:hover{background:var(--ink-2);box-shadow:inset 2px 0 0 var(--signal-dim)}
-@media(max-width:720px){.win{grid-template-columns:1fr;gap:.3rem}}
-.win time{font-family:var(--mono);font-size:.74rem;color:var(--paper-faint);letter-spacing:.06em}
-.win strong{font-weight:500;font-size:1.06rem;transition:color 150ms var(--ease-hover)}
-.win:hover strong{color:var(--paper)}
-.win .res{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--base);text-transform:uppercase}
-.win.gold .res{color:var(--signal)}
-.win.gold:hover{box-shadow:inset 2px 0 0 var(--signal)}
+/* links */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1.6rem}
+.links a{background:var(--paper);padding:1.1rem 1.2rem;display:block;color:var(--ink)}
+.links a:hover{background:var(--paper-2);text-decoration:none}
+.links a b{display:block;font-weight:600;font-size:1rem;margin-bottom:.15rem;color:var(--accent)}
+.links a span{font-size:.86rem;color:var(--ink-2)}
 
-/* ── links ── */
-.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.6rem}
-.links a{background:var(--ink);padding:1.5rem;text-decoration:none;display:block;transition:background 150ms var(--ease-hover),box-shadow 200ms ease-out}
-.links a:hover{background:var(--ink-2);box-shadow:inset 0 -2px 0 var(--signal-dim)}
-.links a b{display:block;font-weight:500;font-size:1.05rem;margin-bottom:.3rem;transition:color 150ms var(--ease-hover)}
-.links a span{font-family:var(--mono);font-size:.72rem;color:var(--paper-faint);letter-spacing:.03em}
-.links a:hover b{color:var(--signal)}
+footer{padding:2.5rem 0 3.5rem;border-top:1px solid var(--rule);color:var(--ink-2);font-size:.85rem}
 
-footer{padding:4rem 0 5rem;border-top:1px solid var(--rule);color:var(--paper-faint);font-family:var(--mono);font-size:.74rem;letter-spacing:.05em}
-footer a{color:var(--paper-dim);text-decoration:none;transition:color 150ms var(--ease-hover)}
-footer a:hover{color:var(--signal)}
-
-/* ── arrow links: nudge on hover ── */
-.arrow-link{display:inline-flex;align-items:center;gap:.3em;transition:color 150ms var(--ease-hover),transform 150ms var(--ease-hover)}
-.arrow-link:hover{color:var(--signal);transform:translateX(2px)}
-
-/* ── reduced motion: gate ALL animation ── */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:0.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:0.01ms!important;
-    scroll-behavior:auto!important;
-  }
-  .rv{opacity:1;transform:none;will-change:auto}
-  .tl-body::before{transform:scaleY(1)}
-  [style*="transition-delay"]{transition-delay:0s!important}
-}
-
-/* ── contact form ── */
+/* contact form */
 .contact-form{max-width:32rem}
-.contact-form label{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:.4rem}
-.contact-form input,.contact-form textarea{
-  width:100%;background:var(--ink-2);border:1px solid var(--rule);border-radius:2px;
-  color:var(--paper);font-family:var(--serif);font-size:1rem;padding:.8rem 1rem;
-  transition:border-color .25s;
-}
-.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--signal)}
+.contact-form label{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:600;margin-bottom:.35rem}
+.contact-form input,.contact-form textarea{width:100%;background:#fff;border:1px solid var(--rule);border-radius:3px;color:var(--ink);font-family:var(--sans);font-size:1rem;padding:.7rem .9rem}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
 .contact-form textarea{min-height:8rem;resize:vertical}
-.contact-form .field{margin-bottom:1.4rem}
-.contact-form button{
-  font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
-  background:transparent;border:1px solid var(--signal);color:var(--signal);
-  padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;transition:background 150ms var(--ease-hover),color 150ms var(--ease-hover),transform 150ms var(--ease-hover);
-}
-.contact-form button:hover{background:var(--signal);color:var(--ink);transform:scale(1.02)}
+.contact-form .field{margin-bottom:1.1rem}
+.contact-form button{font-family:var(--sans);font-size:.92rem;font-weight:600;background:var(--accent);border:1.5px solid var(--accent);color:#fff;padding:.6rem 1.4rem;border-radius:3px;cursor:pointer}
+.contact-form button:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
 .contact-form button:disabled{opacity:.5;cursor:not-allowed}
 .contact-form .hp{position:absolute;left:-9999px}
-.contact-form .msg{margin-top:1rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.04em}
-.contact-form .msg.ok{color:#6ec66e}
-.contact-form .msg.err{color:#e05454}
+.contact-form .msg{margin-top:.9rem;font-size:.9rem}
+.contact-form .msg.ok{color:#2f7a3e}
+.contact-form .msg.err{color:#b3261e}
+
+@media print{
+  body{font-size:11pt;color:#000;background:#fff}
+  a{color:#000;text-decoration:underline}
+  .chips,#contact,footer,details summary{display:none}
+  details{display:block}
+  .node,.win,.log div{page-break-inside:avoid}
+  section{padding:1.2rem 0}
+}
 </style>
 </head>
 <body>
@@ -214,34 +165,51 @@ footer a:hover{color:var(--signal)}
 <header>
   <div class="wrap">
     <div class="hero-row">
-      <img src="julio.jpg" alt="Julio M Cruz" class="portrait rv">
+      <img src="julio-320.jpg" alt="Julio M Cruz" class="portrait" width="96" height="96">
       <div class="hero-identity">
-        <div class="lbl hero-lbl rv">Software Engineer · Founder</div>
-        <h1 class="rv">Julio M Cruz</h1>
-        <p class="hero-intro rv">29+ years shipping production systems. Founded PerkOS and zkNexus.</p>
+        <div class="lbl hero-lbl">Senior Software Engineer · Cloud, AI, secure systems · Virginia, US</div>
+        <h1>Julio M Cruz</h1>
+        <p class="hero-intro">You are looking at 25 years of software that works: six under a Top Secret clearance at SBA and State, enterprise before that, and AI infrastructure I built and operate today.</p>
+        <div class="chips">
+          <a class="primary" href="JulioMCruz-Resume.pdf">Resume (PDF)</a>
+          <a href="mailto:julio.cruz@eb-ms.net">Email</a>
+          <a href="https://github.com/JulioMCruz">GitHub</a>
+          <a href="https://www.linkedin.com/in/juliomcruz/">LinkedIn</a>
+          <a href="https://x.com/JulioMCruz">X</a>
+        </div>
       </div>
-    </div>
-    <div class="chips rv">
-      <a class="chip" href="https://github.com/JulioMCruz">github ↗</a>
-      <a class="chip" href="https://x.com/JulioMCruz">x ↗</a>
-      <a class="chip" href="https://www.linkedin.com/in/juliomcruz/">linkedin ↗</a>
-      <a class="chip" href="https://perkos.xyz">perkos.xyz ↗</a>
-      <a class="chip" href="https://stack.perkos.xyz/api/v2/x402/supported">x402 facilitator ↗</a>
     </div>
   </div>
 </header>
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <div class="lbl">Now</div>
+      <h2>Shipping production systems.</h2>
+    </div>
+    <p class="lead">I founded PerkOS to bring AI teams to small businesses at prices they can afford: a workspace where a business hires AI teammates in one click, running on infrastructure I designed, built, and operate. I founded zkNexus. Both are active.</p>
+    <p class="lead" style="margin-top:1rem">Most of what I build is open: 165 own public repositories, three agent runtimes packaged as container images, and systems that run in government, enterprise, and onchain environments.</p>
+    <div class="stats">
+      <div><b>25+</b><span>years shipping production software</span></div>
+      <div><b>6</b><span>years TS-cleared, SBA and State</span></div>
+      <div><b>165</b><span>own public repositories</span></div>
+      <div><b>3</b><span>agent runtimes in production</span></div>
+    </div>
+  </div>
+</section>
 
 <hr class="rule">
 
 <section>
   <div class="wrap tl">
-    <div class="lbl rv">The arc</div>
+    <div class="lbl">The arc</div>
     <div class="tl-body">
-      <div class="node rv"><span class="yr">2001–2005 · Lima, Peru</span><h3>Where it started</h3><p>Analyst programmer at the National Office of Electoral Processes. Database engineer at the Ministry of Economy and Finance. Software architect at AVATAR. I know what building software inside an under-resourced institution feels like, because that is where I learned.</p></div>
-      <div class="node rv"><span class="yr">2008–2019 · Virginia</span><h3>Enterprise systems</h3><p>Six years on corporate infrastructure at JACER. Five as lead developer at Contensive, on e-commerce and mission-critical systems, owning requirements through post-production support.</p></div>
-      <div class="node key rv"><span class="yr">2019–2025 · Washington DC</span><h3>Top Secret clearance</h3><p>Senior software engineer for the U.S. federal government. The Small Business Administration from 2019 to 2021, then the Department of State from 2021 to 2025: C#, .NET, Azure, and identity work with OKTA, Azure AD and OAuth. Systems where a mistake is expensive.</p></div>
-      <div class="node key rv"><span class="yr">2021 to now · Nights and weekends</span><h3>Onchain, in parallel</h3><p>One hundred and sixty five public repositories built alongside the clearance job. Solidity, TypeScript, payment rails. A blockchain credential from MIT Professional Education.</p></div>
-      <div class="node key rv"><span class="yr">September 2025</span><h3>Left to build full time</h3><p>Left the clearance job to work on PerkOS full time. Full time on the thing all of it was pointing at.</p></div>
+      <div class="node key"><span class="yr">September 2025 to now</span><h3>Building PerkOS full time</h3><p>Left the clearance job to build AI-agent infrastructure full time: Next.js and TypeScript product surfaces, an OpenAI-compatible LLM gateway, provisioning on AWS ECS Fargate, Stripe and onchain billing. Product decisions, code, and operations, end to end.</p></div>
+      <div class="node key"><span class="yr">2019 to 2025 · Washington DC</span><h3>Top Secret clearance</h3><p>Senior software engineer for the U.S. federal government. The Small Business Administration from 2019 to 2021, then the Department of State from 2021 to 2025: C#, .NET, Azure, and identity work with OKTA, Azure AD and OAuth. Systems where a mistake is expensive.</p></div>
+      <div class="node key"><span class="yr">2021 to 2025 · Nights and weekends</span><h3>Onchain, in parallel</h3><p>165 public repositories built alongside the clearance job. Solidity, TypeScript, payment rails. A blockchain credential from MIT Professional Education.</p></div>
+      <div class="node"><span class="yr">2008 to 2019 · Virginia</span><h3>Enterprise systems</h3><p>Six years on corporate infrastructure at JACER. Five as lead developer at Contensive, on e-commerce and mission-critical systems, owning requirements through post-production support.</p></div>
+      <div class="node minor"><span class="yr">2001 to 2005 · Lima, Peru</span><h3>Where it started</h3><p>Analyst programmer at the National Office of Electoral Processes, database engineer at the Ministry of Economy and Finance, software architect at AVATAR. I learned to build inside under-resourced institutions.</p></div>
     </div>
   </div>
 </section>
@@ -249,68 +217,49 @@ footer a:hover{color:var(--signal)}
 <section class="incident">
   <div class="wrap">
     <div class="shead">
-      <div class="lbl rv">April 2020</div>
-      <h2 class="rv">The week that decided what I would build for.</h2>
+      <div class="lbl">April 2020</div>
+      <h2>The week that decided what I would build for.</h2>
     </div>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">I was a contractor engineer inside the Small Business Administration when the Paycheck Protection Program launched. It was the emergency lifeline for American small businesses: forgivable loans that decided whether a restaurant, a shop, or a two person agency survived the year. The systems were not built for it.</p>
-
-    <div class="log rv">
+    <p class="lead">I was a contractor engineer inside the Small Business Administration when the Paycheck Protection Program launched: forgivable loans that decided whether a restaurant, a shop, or a two-person agency survived the year. The systems were not built for it.</p>
+    <div class="log">
       <div><time>Apr 3</time><span>Paycheck Protection Program opens. A nation of small businesses arrives at once.</span></div>
       <div><time>Apr 6</time><span class="hit">E-Tran, the loan portal, goes down. Unreachable for up to four hours.</span></div>
-      <div><time>Apr 6</time><span>Every hour it is down, owners cannot reach the money keeping their people paid.</span></div>
       <div><time>Apr 8</time><span class="out">A new entry point into the loan system ships. Built with AWS.</span></div>
       <div><time>Apr 8</time><span>381,000 loans · $100 billion · 3,600 lenders, by that afternoon.</span></div>
       <div><time>Apr 16</time><span class="out">Funding exhausted. More than one million small businesses approved.</span></div>
     </div>
-
-    <p class="rv" style="margin-top:2.6rem;max-width:62ch;color:var(--paper-dim)">The SBA normally backs about $25 billion a year in 7(a) loans. PPP asked the same infrastructure to move that in days, roughly fifty times normal capacity. At that volume the hard part is never the feature. It is consistency under load, recovery you can trust, and designing for the failure rather than the demo, because a partial write is somebody's payroll.</p>
-
-    <p class="pull rv">Every one of those millions of clicks was an owner trying to keep their business alive. That is the same person I build for now.</p>
-    <p class="src rv">Timeline corroborated by contemporaneous reporting, including American Banker, "After opening-day fiasco, SBA upgrades lender portal with Amazon assist."</p>
+    <p class="lead" style="margin-top:1.6rem">The SBA normally backs about $25 billion a year in 7(a) loans. PPP asked the same infrastructure to move that in days, roughly fifty times normal capacity. At that volume the hard part is never the feature. It is consistency under load, recovery you can trust, and designing for the failure rather than the demo, because a partial write is somebody's payroll. That is the same person I build for now.</p>
+    <p class="src">Timeline corroborated by contemporaneous reporting, including American Banker, "After opening-day fiasco, SBA upgrades lender portal with Amazon assist."</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="shead">
-      <div class="lbl rv">Now</div>
-      <h2 class="rv">Building companies. Shipping production systems.</h2>
+      <div class="lbl">The record</div>
+      <h2>37 hackathon awards since 2022, 12 first places.</h2>
     </div>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">I founded PerkOS to bring AI teams to small businesses at prices they can afford. I founded zkNexus. Both are active.</p>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim);margin-top:1.2rem">Most of what I build is open. One hundred sixty-five public repositories, three agent runtimes, and systems that run in government, enterprise, and onchain environments.</p>
-    <div class="data rv">
-      <div class="hl"><b>165</b><span>Public repositories on GitHub</span></div>
-      <div><b>3</b><span>Agent runtimes</span></div>
-      <div><b>29+</b><span>Years writing software</span></div>
-      <div><b>6</b><span>Years federal TS clearance</span></div>
-    </div>
-  </div>
-</section>
-
-<hr class="rule">
-
-<section>
-  <div class="wrap">
-    <div class="shead">
-      <div class="lbl rv">The record</div>
-      <h2 class="rv">Hackathon awards.</h2>
-    </div>
-    <p class="rv" style="max-width:62ch;color:var(--paper-dim)">Since 2022. Prize at each of the three IRL ETHGlobal hackathons in 2026 so far. Base is the ecosystem I keep coming back to.</p>
+    <p class="lead">Working prototypes under 48-hour deadlines: AI agents, payments, identity. A prize at each of the three in-person ETHGlobal hackathons in 2026 so far.</p>
     <div class="wins">
-      <div class="win gold rv"><time>Jul 2026</time><strong>ETHGlobal Lisbon <span style="color:var(--paper-faint);font-weight:300">· EQLTY</span></strong><span class="res"><a href="https://ethglobal.com/showcase/eqlty-smqdg" style="color:inherit;text-decoration:none">The Graph · Best AI Use Case (Continuity) · 1st</a></span></div>
-      <div class="win rv"><time>Jun 2026</time><strong>ETHGlobal NYC <span style="color:var(--paper-faint);font-weight:300">· Stream Vaults</span></strong><span class="res"><a href="https://ethglobal.com/showcase/stream-vaults-m9qz5" style="color:inherit;text-decoration:none">Ledger AI Agents 4th · Uniswap Foundation 2nd</a></span></div>
-      <div class="win rv"><time>Apr 2026</time><strong>ETHGlobal Cannes <span style="color:var(--paper-faint);font-weight:300">· Flow Broker</span></strong><span class="res"><a href="https://ethglobal.com/showcase/flow-broker-ez5rr" style="color:inherit;text-decoration:none">Uniswap Foundation 3rd · Chainlink CRE</a></span></div>
-      <div class="win rv"><time>Feb 2026</time><strong>ETHDenver <span style="color:var(--paper-faint);font-weight:300">· SWARM</span></strong><span class="res"><a href="https://devfolio.co/projects/swarm-548b" style="color:inherit;text-decoration:none">1st On-Chain Automation with Hedera Schedule Service</a></span></div>
-      <div class="win rv"><time>Feb 2026</time><strong>HackMoney <span style="color:var(--paper-faint);font-weight:300">· UniPerk</span></strong><span class="res"><a href="https://ethglobal.com/showcase/uniperk-2vcmt" style="color:inherit;text-decoration:none">ENS · Integrate ENS · Prize Pool</a></span></div>
-      <div class="win rv"><time>Jul 2025</time><strong>ETHGlobal Cannes <span style="color:var(--paper-faint);font-weight:300">· PolyBet</span></strong><span class="res">Finalist</span></div>
-      <div class="win rv"><time>Jun 2025</time><strong>ETHGlobal Prague <span style="color:var(--paper-faint);font-weight:300">· Kairos</span></strong><span class="res">Flare</span></div>
-      <div class="win gold rv"><time>May 2025</time><strong>Base Batches LatAm <span style="color:var(--paper-faint);font-weight:300">· AI ART3 HUB</span></strong><span class="res">Winner</span></div>
-      <div class="win rv"><time>Mar 2025</time><strong>ETHSF <span style="color:var(--paper-faint);font-weight:300">· My Moments</span></strong><span class="res">Base, 3rd</span></div>
-      <div class="win rv"><time>Feb 2025</time><strong>Agentic Ethereum <span style="color:var(--paper-faint);font-weight:300">· Infinity</span></strong><span class="res">Coinbase AgentKit</span></div>
-      <div class="win gold rv"><time>Oct 2024</time><strong>Base Around The World LatAm <span style="color:var(--paper-faint);font-weight:300">· CrediTalent</span></strong><span class="res">Winner</span></div>
-      <div class="win rv"><time>Oct 2024</time><strong>ETHGlobal San Francisco <span style="color:var(--paper-faint);font-weight:300">· Aurum</span></strong><span class="res">Chronicle, 1st</span></div>
+      <div class="win"><time>Jul 2026</time><strong>ETHGlobal Lisbon <span>· EQLTY</span></strong><span class="res"><a href="https://ethglobal.com/showcase/eqlty-smqdg"><b>1st</b> The Graph, Best AI Use Case</a></span></div>
+      <div class="win"><time>Jun 2026</time><strong>ETHGlobal New York <span>· Stream Vaults</span></strong><span class="res"><a href="https://ethglobal.com/showcase/stream-vaults-m9qz5"><b>2nd</b> Uniswap Foundation · <b>4th</b> Ledger AI Agents</a></span></div>
+      <div class="win"><time>Apr 2026</time><strong>ETHGlobal Cannes <span>· Flow Broker</span></strong><span class="res"><a href="https://ethglobal.com/showcase/flow-broker-ez5rr"><b>3rd</b> Uniswap Foundation · Chainlink CRE</a></span></div>
+      <div class="win"><time>Feb 2026</time><strong>ETHDenver <span>· SWARM</span></strong><span class="res"><a href="https://devfolio.co/projects/swarm-548b"><b>1st</b> On-chain automation, Hedera</a></span></div>
+      <div class="win"><time>Jun 2025</time><strong>ETHGlobal Prague <span>· Kairos</span></strong><span class="res"><b>1st</b> Flare Network main track</span></div>
     </div>
-    <p class="rv" style="margin-top:1.8rem"><a href="https://github.com/JulioMCruz" class="arrow-link" style="font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--paper-faint);text-decoration:none">Full record on GitHub ↗</a></p>
+    <details>
+      <summary>Seven more selected wins</summary>
+      <div class="wins" style="margin-top:0">
+        <div class="win"><time>Feb 2026</time><strong>HackMoney <span>· UniPerk</span></strong><span class="res"><a href="https://ethglobal.com/showcase/uniperk-2vcmt">ENS prize pool</a></span></div>
+        <div class="win"><time>Jul 2025</time><strong>ETHGlobal Cannes <span>· PolyBet</span></strong><span class="res"><b>Finalist</b></span></div>
+        <div class="win"><time>May 2025</time><strong>Base Batches LatAm <span>· AI ART3 HUB</span></strong><span class="res"><b>Winner</b></span></div>
+        <div class="win"><time>Mar 2025</time><strong>ETHSF <span>· My Moments</span></strong><span class="res"><b>3rd</b> Base</span></div>
+        <div class="win"><time>Feb 2025</time><strong>Agentic Ethereum <span>· Infinity</span></strong><span class="res">Coinbase AgentKit</span></div>
+        <div class="win"><time>Oct 2024</time><strong>Base Around The World LatAm <span>· CrediTalent</span></strong><span class="res"><b>Winner</b></span></div>
+        <div class="win"><time>Oct 2024</time><strong>ETHGlobal San Francisco <span>· Aurum</span></strong><span class="res"><b>1st</b> Chronicle Protocol</span></div>
+      </div>
+    </details>
+    <p style="margin-top:1rem;font-size:.9rem"><a href="https://github.com/JulioMCruz">Full record on GitHub</a></p>
   </div>
 </section>
 
@@ -319,16 +268,16 @@ footer a:hover{color:var(--signal)}
 <section>
   <div class="wrap">
     <div class="shead">
-      <div class="lbl rv">Elsewhere</div>
-      <h2 class="rv">Most of it is open. Read the thing rather than take my word for it.</h2>
+      <div class="lbl">Selected work</div>
+      <h2>Most of it is open.</h2>
     </div>
     <div class="links">
-      <a class="rv" href="https://github.com/JulioMCruz"><b>GitHub</b><span>165 own repos · 0xJMC</span></a>
-      <a class="rv" href="https://x.com/JulioMCruz"><b>X</b><span>@JulioMCruz</span></a>
-      <a class="rv" href="https://www.linkedin.com/in/juliomcruz/"><b>LinkedIn</b><span>in/juliomcruz</span></a>
-      <a class="rv" href="https://perkos.xyz"><b>PerkOS</b><span>company I founded</span></a>
-      <a class="rv" href="https://t.me/JulioMCruz"><b>Telegram</b><span>t.me/JulioMCruz</span></a>
-      <a class="rv" href="mailto:julio.cruz@eb-ms.net"><b>Email</b><span>julio.cruz@eb-ms.net</span></a>
+      <a href="https://github.com/JulioMCruz"><b>GitHub</b><span>165 own repositories · 0xJMC</span></a>
+      <a href="https://perkos.xyz"><b>PerkOS</b><span>AI agent teams I build and operate</span></a>
+      <a href="https://stack.perkos.xyz/api/v2/x402/supported"><b>x402 facilitator</b><span>live payment endpoint on Base</span></a>
+      <a href="https://www.linkedin.com/in/juliomcruz/"><b>LinkedIn</b><span>full role-by-role history</span></a>
+      <a href="https://t.me/JulioMCruz"><b>Telegram</b><span>t.me/JulioMCruz</span></a>
+      <a href="mailto:julio.cruz@eb-ms.net"><b>Email</b><span>julio.cruz@eb-ms.net</span></a>
     </div>
   </div>
 </section>
@@ -338,10 +287,10 @@ footer a:hover{color:var(--signal)}
 <section id="contact">
   <div class="wrap">
     <div class="shead">
-      <div class="lbl rv">Contact</div>
-      <h2 class="rv">Get in touch.</h2>
+      <div class="lbl">Contact</div>
+      <h2>When your team needs someone who ships software that works, write me.</h2>
     </div>
-    <form class="contact-form rv" id="contact-form" action="/contact" method="POST">
+    <form class="contact-form" id="contact-form" action="/contact" method="POST">
       <div class="field">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required autocomplete="name">
@@ -354,7 +303,7 @@ footer a:hover{color:var(--signal)}
         <label for="message">Message</label>
         <textarea id="message" name="message" required></textarea>
       </div>
-      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off">
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit" id="submit-btn">Send message</button>
       <div id="form-msg" class="msg" aria-live="polite"></div>
     </form>
@@ -363,25 +312,11 @@ footer a:hover{color:var(--signal)}
 
 <footer>
   <div class="wrap">
-    Julio M Cruz · Software Engineer · Founder · Virginia, US
+    Julio M Cruz · Senior Software Engineer · Virginia, US
   </div>
 </footer>
 
 <script>
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'-80px 0px',threshold:.06});
-document.querySelectorAll('.rv').forEach((el,i)=>{
-  if(el.closest('header')){
-    requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')));
-    return;
-  }
-  const p=el.parentElement;
-  if(p&&(p.classList.contains('log')||p.classList.contains('wins')||p.classList.contains('links')||p.classList.contains('tl-body')||p.classList.contains('data'))){
-    el.style.transitionDelay=(Array.from(p.children).indexOf(el)*0.07)+'s';
-  }
-  io.observe(el);
-});
-document.querySelectorAll('.tl-body').forEach(el=>{io.observe(el)});
-
 (function(){
   const form=document.getElementById('contact-form');
   const btn=document.getElementById('submit-btn');
